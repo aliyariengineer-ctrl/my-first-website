@@ -111,13 +111,124 @@ color:var(--primary-color);
 margin-bottom:15px;
 }
 
+/* ===== SaaS Pricing ===== */
+
+.pricing-section{
+padding:90px 5%;
+background:linear-gradient(180deg,#f8fafc,#eef2ff);
+text-align:center;
+}
+
+.pricing-title{
+font-size:2.2rem;
+margin-bottom:10px;
+}
+
+.pricing-sub{
+color:#666;
+margin-bottom:50px;
+}
+
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+max-width:1100px;
+margin:auto;
+}
+
+.price-card{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+padding:40px 30px;
+border-radius:18px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+transition:all .35s ease;
+position:relative;
+border:1px solid rgba(255,255,255,0.4);
+}
+
+.price-card:hover{
+transform:translateY(-14px) scale(1.02);
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
+
+.price-card.featured{
+background:linear-gradient(135deg,#2563eb,#4f46e5);
+color:white;
+transform:scale(1.06);
+}
+
+.price-card.featured .price-value{
+color:white;
+}
+
+.badge{
+position:absolute;
+top:-14px;
+right:25px;
+background:#22c55e;
+color:white;
+padding:6px 14px;
+border-radius:30px;
+font-size:0.8rem;
+font-weight:bold;
+}
+
+.price-value{
+font-size:2.2rem;
+font-weight:bold;
+color:var(--primary-color);
+margin:20px 0;
+}
+
+.price-features{
+list-style:none;
+margin:25px 0;
+text-align:right;
+}
+
+.price-features li{
+margin:12px 0;
+font-size:0.95rem;
+}
+
+.price-features i{
+margin-left:7px;
+color:#22c55e;
+}
+
+.price-card.featured .price-features i{
+color:#bbf7d0;
+}
+
+.order-btn{
+display:inline-block;
+background:var(--primary-color);
+color:white;
+padding:13px 28px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.order-btn:hover{
+background:var(--secondary-color);
+}
+
+.price-card.featured .order-btn{
+background:white;
+color:#2563eb;
+}
+
 /* contact */
 
 .contact-section{
 background:white;
 padding:50px 5%;
 max-width:800px;
-margin:50px auto;
+margin:70px auto;
 border-radius:15px;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
@@ -163,17 +274,15 @@ font-size:1.8rem;
 
 </style>
 
-<!-- Crisp Chat -->
-
-<script type="text/javascript">
+<script>
 window.$crisp=[];
-window.CRISP_WEBSITE_ID="7837095a-939e-4a6c-940b-70337f76336a";
+window.CRISP_WEBSITE_ID="5c421b2c-e6b3-4a70-8428-49c0b6b6041a";
 (function(){
 d=document;
 s=d.createElement("script");
 s.src="https://client.crisp.chat/l.js";
 s.async=1;
-d.getElementsByTagName("head")[0].appendChild(s);
+document.head.appendChild(s);
 })();
 </script>
 
@@ -224,6 +333,63 @@ d.getElementsByTagName("head")[0].appendChild(s);
 <i class="fas fa-rocket"></i>
 <h3>سئو و بهینه‌سازی</h3>
 <p>بهبود رتبه سایت در نتایج گوگل</p>
+</div>
+
+</section>
+
+<section class="pricing-section">
+
+<h2 class="pricing-title">تعرفه طراحی سایت</h2>
+<p class="pricing-sub">پلن مناسب کسب‌وکار خود را انتخاب کنید</p>
+
+<div class="pricing">
+
+<div class="price-card">
+<h3>پلن شرکتی</h3>
+<div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
+
+<ul class="price-features">
+<li><i class="fas fa-check"></i> طراحی مدرن و ریسپانسیو</li>
+<li><i class="fas fa-check"></i> پنل مدیریت ساده</li>
+<li><i class="fas fa-check"></i> سئو پایه</li>
+<li><i class="fas fa-check"></i> پشتیبانی ۱ ماهه</li>
+</ul>
+
+<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
+</div>
+
+<div class="price-card featured">
+
+<div class="badge">پیشنهادی</div>
+
+<h3>پلن فروشگاهی</h3>
+<div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
+
+<ul class="price-features">
+<li><i class="fas fa-check"></i> فروشگاه کامل</li>
+<li><i class="fas fa-check"></i> مدیریت محصولات</li>
+<li><i class="fas fa-check"></i> اتصال درگاه پرداخت</li>
+<li><i class="fas fa-check"></i> سئو و سرعت بالا</li>
+<li><i class="fas fa-check"></i> پشتیبانی ۳ ماهه</li>
+</ul>
+
+<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
+</div>
+
+<div class="price-card">
+<h3>پلن اختصاصی</h3>
+<div class="price-value">تماس بگیرید</div>
+
+<ul class="price-features">
+<li><i class="fas fa-check"></i> طراحی کاملاً سفارشی</li>
+<li><i class="fas fa-check"></i> امکانات خاص</li>
+<li><i class="fas fa-check"></i> توسعه اختصاصی</li>
+<li><i class="fas fa-check"></i> پشتیبانی ویژه</li>
+</ul>
+
+<a href="tel:09011516162" class="order-btn">دریافت مشاوره</a>
+</div>
+
 </div>
 
 </section>
