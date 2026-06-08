@@ -83,16 +83,16 @@ text-align:center;
 margin-bottom:15px;
 }
 
-/* services & pricing */
+/* services */
 
-.services, .pricing{
+.services{
 padding:60px 5%;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-.service-card, .price-card{
+.service-card{
 background:white;
 padding:30px;
 border-radius:12px;
@@ -101,7 +101,7 @@ box-shadow:0 4px 6px rgba(0,0,0,0.05);
 transition:0.3s;
 }
 
-.service-card:hover, .price-card:hover{
+.service-card:hover{
 transform:translateY(-10px);
 }
 
@@ -109,6 +109,28 @@ transform:translateY(-10px);
 font-size:3rem;
 color:var(--primary-color);
 margin-bottom:15px;
+}
+
+/* pricing */
+
+.pricing{
+padding:60px 5%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.price-card{
+background:white;
+padding:30px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 4px 6px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.price-card:hover{
+transform:translateY(-10px);
 }
 
 .price-value{
@@ -125,7 +147,7 @@ color:white;
 padding:10px 20px;
 border-radius:6px;
 text-decoration:none;
-margin-top:15px;
+margin-top:10px;
 }
 
 /* contact */
@@ -149,7 +171,6 @@ padding:0.8rem;
 border:1px solid #ddd;
 border-radius:6px;
 outline:none;
-font-family:tahoma;
 }
 
 .send-btn{
@@ -161,7 +182,6 @@ border-radius:6px;
 cursor:pointer;
 width:100%;
 font-size:1.1rem;
-font-family:tahoma;
 }
 
 /* footer */
@@ -182,10 +202,11 @@ font-size:1.8rem;
 
 </style>
 
-<!-- Crisp Chat - تنظیم شده با شناسه اختصاصی شما -->
+<!-- Crisp Chat -->
+
 <script type="text/javascript">
 window.$crisp=[];
-window.CRISP_WEBSITE_ID="7837095a-939e-4a6c-940b-70337f76336a";
+window.CRISP_WEBSITE_ID="5c421b2c-e6b3-4a70-8428-49c0b6b6041a";
 (function(){
 d=document;
 s=d.createElement("script");
@@ -215,11 +236,17 @@ d.getElementsByTagName("head")[0].appendChild(s);
 </header>
 
 <section class="hero">
+
 <h1>کسب‌وکار شما لایق بهترین ویترین است</h1>
-<p>طراحی سایت‌های اختصاصی، فروشگاهی و شرکتی با جدیدترین تکنولوژی‌های روز</p>
+
+<p>
+طراحی سایت‌های اختصاصی، فروشگاهی و شرکتی با جدیدترین تکنولوژی‌های روز
+</p>
+
 </section>
 
 <section class="services">
+
 <div class="service-card">
 <i class="fas fa-laptop-code"></i>
 <h3>طراحی سایت اختصاصی</h3>
@@ -237,35 +264,42 @@ d.getElementsByTagName("head")[0].appendChild(s);
 <h3>سئو و بهینه‌سازی</h3>
 <p>بهبود رتبه سایت در نتایج گوگل</p>
 </div>
+
 </section>
 
-<!-- بخش تعرفه ها که اضافه شد -->
-<h2 style="text-align:center; margin-top:40px;">تعرفه خدمات ما</h2>
 <section class="pricing">
-    <div class="price-card">
-        <h3>پلن شرکتی</h3>
-        <div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
-        <p>مناسب معرفی خدمات و برندینگ</p>
-        <a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
-    </div>
-    <div class="price-card">
-        <h3>پلن فروشگاهی</h3>
-        <div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
-        <p>فروش محصول و مدیریت انبار</p>
-        <a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
-    </div>
-    <div class="price-card">
-        <h3>پلن اختصاصی</h3>
-        <div class="price-value">تماس بگیرید</div>
-        <p>طراحی از صفر بر اساس نیاز شما</p>
-        <a href="#contact" class="order-btn">دریافت مشاوره</a>
-    </div>
+
+<div class="price-card">
+<h3>پلن شرکتی</h3>
+<div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
+<p>مناسب معرفی خدمات و برندینگ</p>
+<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
+</div>
+
+<div class="price-card">
+<h3>پلن فروشگاهی</h3>
+<div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
+<p>راه‌اندازی فروشگاه کامل با مدیریت محصولات</p>
+<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
+</div>
+
+<div class="price-card">
+<h3>پلن اختصاصی</h3>
+<div class="price-value">تماس بگیرید</div>
+<p>طراحی کاملاً سفارشی بر اساس نیاز کسب‌وکار</p>
+<a href="tel:09011516162" class="order-btn">دریافت مشاوره</a>
+</div>
+
 </section>
 
-<div class="contact-section" id="contact">
-<h2 style="text-align:center;margin-bottom:2rem">ارسال پیام مستقیم</h2>
+<div class="contact-section">
+
+<h2 style="text-align:center;margin-bottom:2rem">
+ارسال پیام مستقیم
+</h2>
 
 <form action="https://formspree.io/f/xaqzodlv" method="POST">
+
 <div class="form-group">
 <label>نام و نام خانوادگی</label>
 <input type="text" name="name" required placeholder="نام شما">
@@ -281,12 +315,20 @@ d.getElementsByTagName("head")[0].appendChild(s);
 <textarea name="message" rows="5" required placeholder="در مورد پروژه خود توضیح دهید"></textarea>
 </div>
 
-<button type="submit" class="send-btn">ارسال درخواست مشاوره</button>
+<button type="submit" class="send-btn">
+ارسال درخواست مشاوره
+</button>
+
 </form>
+
 </div>
 
 <footer>
-<p>تمامی حقوق محفوظ است © ۲۰۲۶ | طراحیار</p>
+
+<p>
+تمامی حقوق محفوظ است © ۲۰۲۶ | طراحیار
+</p>
+
 </footer>
 
 </body>
