@@ -1,194 +1,111 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>طراحیار | طراحی سایت حرفه‌ای</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طراحیار | طراحی سایت حرفه‌ای</title>
+    <style>
+        body { font-family: tahoma; margin: 0; background: #f5f7fb; color: #333; }
+        header { background: #111827; color: white; padding: 40px; text-align: center; }
+        header h1 { margin: 0; font-size: 32px; }
+        header p { margin-top: 10px; color: #d1d5db; }
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .price { font-size: 26px; color: #2563eb; margin: 15px 0; font-weight: bold; }
+        .btn { display: inline-block; background: #2563eb; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; margin-top: 10px; width: 80%; }
+        .contact { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); max-width: 600px; margin: auto; }
+        input, textarea { width: 100%; padding: 12px; margin-top: 10px; border: 1px solid #ddd; border-radius: 8px; font-family: tahoma; box-sizing: border-box; }
+        button { width: 100%; margin-top: 15px; padding: 12px; border: none; background: #10b981; color: white; border-radius: 8px; cursor: pointer; font-size: 16px; font-family: tahoma; }
+        
+        /* دکمه تماس فوری */
+        .call-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #2563eb;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-<style>
-body{
-font-family:tahoma;
-margin:0;
-background:#f5f7fb;
-color:#333;
-}
-
-header{
-background:#111827;
-color:white;
-padding:40px;
-text-align:center;
-}
-
-header h1{
-margin:0;
-font-size:32px;
-}
-
-header p{
-margin-top:10px;
-color:#d1d5db;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
-
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
-text-align:center;
-}
-
-.card h3{
-margin-top:0;
-}
-
-.price{
-font-size:26px;
-color:#2563eb;
-margin:15px 0;
-}
-
-.btn{
-display:inline-block;
-background:#2563eb;
-color:white;
-padding:10px 18px;
-border-radius:8px;
-text-decoration:none;
-margin-top:10px;
-}
-
-.contact{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
-}
-
-input,textarea{
-width:100%;
-padding:10px;
-margin-top:10px;
-border:1px solid #ddd;
-border-radius:8px;
-font-family:tahoma;
-}
-
-button{
-margin-top:15px;
-padding:10px 20px;
-border:none;
-background:#2563eb;
-color:white;
-border-radius:8px;
-cursor:pointer;
-}
-
-footer{
-text-align:center;
-padding:20px;
-margin-top:40px;
-background:#111827;
-color:#aaa;
-}
-</style>
-
+        footer { text-align: center; padding: 20px; margin-top: 40px; background: #111827; color: #aaa; }
+    </style>
 </head>
-
 <body>
 
 <header>
-<h1>طراحیار</h1>
-<p>طراحی سایت حرفه‌ای برای کسب‌وکار شما</p>
+    <h1>طراحیار</h1>
+    <p>طراحی سایت حرفه‌ای و اختصاصی با مدیریت امیرحسین یاری</p>
 </header>
 
 <div class="container">
-
-<h2 style="text-align:center;margin-bottom:30px;">تعرفه طراحی سایت</h2>
-
-<div class="pricing">
-
-<div class="card">
-<h3>سایت شرکتی</h3>
-<div class="price">۴,۹۰۰,۰۰۰ تومان</div>
-<p>طراحی مدرن</p>
-<p>ریسپانسیو موبایل</p>
-<p>فرم تماس</p>
-<a class="btn" href="#">پرداخت آنلاین</a>
-</div>
-
-<div class="card">
-<h3>سایت فروشگاهی</h3>
-<div class="price">۸,۹۰۰,۰۰۰ تومان</div>
-<p>سیستم فروش محصول</p>
-<p>درگاه پرداخت</p>
-<p>مدیریت سفارش</p>
-<a class="btn" href="#">پرداخت آنلاین</a>
-</div>
-
-<div class="card">
-<h3>طراحی اختصاصی</h3>
-<div class="price">تماس بگیرید</div>
-<p>طراحی کاملاً سفارشی</p>
-<p>امکانات ویژه</p>
-<p>پشتیبانی اختصاصی</p>
-<a class="btn" href="#contact">مشاوره</a>
-</div>
-
-</div>
-
+    <h2 style="text-align:center; margin-bottom:30px;">تعرفه خدمات طراحی سایت</h2>
+    <div class="pricing">
+        <div class="card">
+            <h3>سایت شرکتی</h3>
+            <div class="price">۴,۹۰۰,۰۰۰ تومان</div>
+            <p>طراحی مدرن و ریسپانسیو</p>
+            <p>سرعت بالا + فرم تماس</p>
+            <a class="btn" href="tel:09026410420">سفارش سریع</a>
+        </div>
+        <div class="card">
+            <h3>سایت فروشگاهی</h3>
+            <div class="price">۸,۹۰۰,۰۰۰ تومان</div>
+            <p>پنل مدیریت محصولات</p>
+            <p>اتصال به درگاه پرداخت</p>
+            <a class="btn" href="tel:09026410420">سفارش سریع</a>
+        </div>
+        <div class="card">
+            <h3>پکیج VIP</h3>
+            <div class="price">تماس بگیرید</div>
+            <p>امکانات کاملاً اختصاصی</p>
+            <p>سئو مقدماتی + پشتیبانی</p>
+            <a class="btn" href="#contact">دریافت مشاوره</a>
+        </div>
+    </div>
 </div>
 
 <div class="container">
-
-<h2 style="text-align:center;margin-bottom:25px;">تماس با ما</h2>
-
-<div class="contact" id="contact">
-
-<form action="https://formspree.io/f/xkgbjvyn" method="POST">
-
-<input type="text" name="name" placeholder="نام شما" required>
-
-<input type="email" name="email" placeholder="ایمیل شما" required>
-
-<textarea name="message" rows="5" placeholder="پیام شما"></textarea>
-
-<button type="submit">ارسال پیام</button>
-
-</form>
-
+    <h2 style="text-align:center; margin-bottom:25px;">ارسال پیام به طراحیار</h2>
+    <div class="contact" id="contact">
+        <form action="https://formspree.io/f/xkgbjvyn" method="POST">
+            <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
+            <input type="email" name="email" placeholder="ایمیل یا شماره تماس" required>
+            <textarea name="message" rows="5" placeholder="توضیحات پروژه شما..." required></textarea>
+            <button type="submit">ارسال درخواست</button>
+        </form>
+    </div>
 </div>
 
-</div>
+<!-- دکمه تماس فوری شناور -->
+<a href="tel:09026410420" class="call-btn">
+    <span>📞 تماس فوری</span>
+</a>
 
 <footer>
-طراحیار - تمامی حقوق محفوظ است
+    © ۱۴۰۳ طراحیار - تمامی حقوق محفوظ است.
 </footer>
 
-<!-- Crisp Chat -->
-
+<!-- Crisp Chat - همان شناسه اختصاصی شما -->
 <script type="text/javascript">
-window.$crisp=[];
-window.CRISP_WEBSITE_ID="7837095a-939e-4a6c-940b-70337f76336a";
-(function(){
-d=document;
-s=d.createElement("script");
-s.src="https://client.crisp.chat/l.js";
-s.async=1;
-d.getElementsByTagName("head")[0].appendChild(s);
-})();
+   window.$crisp=[];
+   window.CRISP_WEBSITE_ID="7837095a-939e-4a6c-940b-70337f76336a";
+   (function(){
+       d=document;
+       s=d.createElement("script");
+       s.src="https://client.crisp.chat/l.js";
+       s.async=1;
+       d.getElementsByTagName("head")[0].appendChild(s);
+   })();
 </script>
 
 </body>
