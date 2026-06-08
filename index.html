@@ -3,139 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت طراحی سایت علی یاری | علی یار مهندس</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>شرکت طراحی سایت علی یاری | حرفه‌ای و مدرن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --text-light: #f8fafc;
-            --card-bg: #ffffff;
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #22c55e;
+            --dark-color: #1f2937;
+            --light-color: #f3f4f6;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tahoma', sans-serif;
+        }
 
-        body { background-color: #f1f5f9; color: var(--primary); line-height: 1.6; }
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
 
+        /* Header */
         header {
-            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
-                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80');
+            background-color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: bold;
+            border: 2px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .contact-info a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 4rem 1rem;
+            padding: 100px 5%;
             text-align: center;
         }
 
-        .container { max-width: 900px; margin: -3rem auto 2rem; padding: 0 1rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
 
-        .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+        /* Services */
+        .services {
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        h2 { color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
-
-        .service-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
-        .service-item { background: #eff6ff; padding: 1rem; border-radius: 12px; border-right: 4px solid var(--accent); }
-
-        .contact-info {
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
-            background: var(--accent);
-            color: white;
-            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card i { font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem; }
+
+        /* Contact Form */
+        .contact-section {
+            background: white;
+            padding: 50px 5%;
+            max-width: 800px;
+            margin: 50px auto;
             border-radius: 15px;
-            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        .phone-link {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-            direction: ltr;
-        }
-
-        .phone-link:hover { text-decoration: underline; }
-
-        .form-group { margin-bottom: 1rem; text-align: right; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; }
         input, textarea {
-            width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; transition: 0.3s;
-        }
-        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
-
-        .btn-submit {
-            background: var(--accent); color: white; padding: 1rem; border: none; border-radius: 10px;
-            font-size: 1.1rem; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s;
-        }
-        .btn-submit:hover { background: #2563eb; transform: translateY(-2px); }
-
-        .call-action {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: #22c55e; color: white; padding: 1rem; border-radius: 10px;
-            text-decoration: none; font-weight: bold; margin-top: 1rem;
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
         }
 
-        footer { text-align: center; padding: 2rem; color: #64748b; }
+        button.send-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+        }
     </style>
+
+    <!-- Crisp Chat SDK -->
+    <script type="text/javascript">
+        window.$crisp=[];
+        window.CRISP_WEBSITE_ID="5c421b2c-e6b3-4a70-8428-49c0b6b6041a";
+        (function(){
+            d=document;
+            s=d.createElement("script");
+            s.src="https://client.crisp.chat/l.js";
+            s.async=1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
 </head>
 <body>
 
     <header>
-        <h1>شرکت طراحی سایت علی یاری</h1>
-        <p>خالق ایده‌های دیجیتال و وب‌سایت‌های مدرن</p>
+        <div class="logo">طراحی سایت علی یاری</div>
+        <div class="contact-info">
+            <a href="tel:09011516162"><i class="fas fa-phone"></i> 09011516162</a>
+        </div>
     </header>
 
-    <div class="container">
-        <!-- بخش خدمات -->
-        <div class="card">
-            <h2><i class="fas fa-code"></i> خدمات حرفه‌ای ما</h2>
-            <div class="service-list">
-                <div class="service-item">طراحی سایت شرکتی</div>
-                <div class="service-item">فروشگاه اینترنتی</div>
-                <div class="service-item">بهینه‌سازی سئو</div>
-                <div class="service-item">پشتیبانی فنی</div>
+    <section class="hero">
+        <h1>کسب‌وکار شما لایق بهترین ویترین است</h1>
+        <p>طراحی سایت‌های اختصاصی، فروشگاهی و شرکتی با آخرین تکنولوژی‌های روز</p>
+    </section>
+
+    <section class="services">
+        <div class="service-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>طراحی سایت اختصاصی</h3>
+            <p>سایت‌هایی متناسب با نیاز و سلیقه شما</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-shopping-cart"></i>
+            <h3>فروشگاه آنلاین</h3>
+            <p>راه اندازی فروشگاه با درگاه پرداخت بانکی</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-rocket"></i>
+            <h3>سئو و بهینه‌سازی</h3>
+            <p>رسیدن به رتبه اول نتایج گوگل</p>
+        </div>
+    </section>
+
+    <div class="contact-section">
+        <h2 style="text-align: center; margin-bottom: 2rem;">ارسال پیام مستقیم</h2>
+        <form action="https://formspree.io/f/xaqzodlv" method="POST">
+            <div class="form-group">
+                <label>نام و نام خانوادگی:</label>
+                <input type="text" name="name" required placeholder="نام شما">
             </div>
-        </div>
-
-        <!-- بخش تماس مستقیم -->
-        <div class="contact-info">
-            <p>مشاوره رایگان و سفارش پروژه:</p>
-            <a href="tel:09011516162" class="phone-link">09011516162</a>
-            <a href="tel:09011516162" class="call-action">
-                <i class="fas fa-phone-alt"></i> همین حالا تماس بگیرید
-            </a>
-        </div>
-
-        <!-- بخش فرم پیام -->
-        <div class="card">
-            <h2><i class="fas fa-paper-plane"></i> ارسال جزئیات پروژه</h2>
-            <form action="https://formspree.io/f/xaqzodlv" method="POST">
-                <div class="form-group">
-                    <label>نام و نام خانوادگی:</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>شماره تماس یا ایمیل:</label>
-                    <input type="text" name="contact" required>
-                </div>
-                <div class="form-group">
-                    <label>توضیحات پروژه:</label>
-                    <textarea name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">ثبت درخواست مشاوره</button>
-            </form>
-        </div>
+            <div class="form-group">
+                <label>ایمیل یا شماره تماس:</label>
+                <input type="text" name="contact" required placeholder="چطور با شما تماس بگیریم؟">
+            </div>
+            <div class="form-group">
+                <label>توضیحات پروژه:</label>
+                <textarea name="message" rows="5" required placeholder="در مورد پروژه خود بگویید..."></textarea>
+            </div>
+            <button type="submit" class="send-btn">ارسال درخواست مشاوره</button>
+        </form>
     </div>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/989011516162" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <footer>
-        &copy; ۲۰۲۶ تمامی حقوق برای مهندس علی یاری محفوظ است.
+        <p>تمامی حقوق محفوظ است &copy; ۲۰۲۶ | شرکت طراحی سایت علی یاری</p>
     </footer>
 
 </body>
