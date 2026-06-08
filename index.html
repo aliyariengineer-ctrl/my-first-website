@@ -114,7 +114,7 @@ color:var(--primary);
 margin-bottom:15px;
 }
 
-/* pricing section */
+/* pricing */
 
 .pricing-section{
 padding:90px 5%;
@@ -140,8 +140,6 @@ max-width:1100px;
 margin:auto;
 }
 
-/* price cards */
-
 .price-card{
 background:rgba(255,255,255,0.75);
 backdrop-filter:blur(12px);
@@ -159,7 +157,7 @@ transform:translateY(-15px) scale(1.03);
 box-shadow:0 30px 60px rgba(0,0,0,0.15);
 }
 
-/* glow effect */
+/* glow */
 
 .price-card::before{
 content:"";
@@ -168,9 +166,7 @@ width:300%;
 height:300%;
 top:-100%;
 left:-100%;
-background:radial-gradient(circle,
-rgba(37,99,235,0.35),
-transparent 40%);
+background:radial-gradient(circle,rgba(37,99,235,0.35),transparent 40%);
 opacity:0;
 transition:.4s;
 }
@@ -185,8 +181,6 @@ animation:glow 4s linear infinite;
 50%{transform:translate(20%,20%)}
 100%{transform:translate(0,0)}
 }
-
-/* featured */
 
 .price-card.featured{
 background:linear-gradient(135deg,#2563eb,#4f46e5);
@@ -210,16 +204,12 @@ font-size:.8rem;
 font-weight:bold;
 }
 
-/* price */
-
 .price-value{
 font-size:2.2rem;
 font-weight:bold;
 color:var(--primary);
 margin:20px 0;
 }
-
-/* features */
 
 .price-features{
 list-style:none;
@@ -239,8 +229,6 @@ margin-left:7px;
 .price-card.featured .price-features i{
 color:#bbf7d0;
 }
-
-/* button */
 
 .order-btn{
 display:inline-block;
@@ -306,17 +294,9 @@ padding:2rem;
 margin-top:50px;
 }
 
-@media(max-width:768px){
-
-.hero h1{
-font-size:1.6rem;
-}
-
-}
-
 </style>
 
-<!-- Crisp Chat -->
+<!-- Crisp Chat (ID صحیح شما) -->
 
 <script>
 
@@ -324,13 +304,11 @@ window.$crisp=[];
 window.CRISP_WEBSITE_ID="7837095a-939e-4a6c-940b-70337f76336a";
 
 (function(){
-
 d=document;
 s=d.createElement("script");
 s.src="https://client.crisp.chat/l.js";
 s.async=1;
-d.getElementsByTagName("head")[0].appendChild(s);
-
+document.head.appendChild(s);
 })();
 
 </script>
@@ -356,13 +334,9 @@ d.getElementsByTagName("head")[0].appendChild(s);
 
 <section class="hero">
 
-<h1>
-کسب‌وکار شما لایق بهترین ویترین است
-</h1>
+<h1>کسب‌وکار شما لایق بهترین ویترین است</h1>
 
-<p>
-طراحی سایت مدرن برای رشد فروش و برند شما
-</p>
+<p>طراحی سایت مدرن برای رشد فروش و برند شما</p>
 
 </section>
 
@@ -383,72 +357,50 @@ d.getElementsByTagName("head")[0].appendChild(s);
 <div class="service-card">
 <i class="fas fa-rocket"></i>
 <h3>سئو و بهینه سازی</h3>
-<p>بهبود رتبه سایت شما در نتایج گوگل</p>
+<p>بهبود رتبه سایت در نتایج گوگل</p>
 </div>
 
 </section>
 
 <section class="pricing-section">
 
-<h2 class="pricing-title">
-تعرفه طراحی سایت
-</h2>
+<h2 class="pricing-title">تعرفه طراحی سایت</h2>
 
-<p class="pricing-sub">
-پلن مناسب کسب‌وکار خود را انتخاب کنید
-</p>
+<p class="pricing-sub">پلن مناسب کسب‌وکار خود را انتخاب کنید</p>
 
 <div class="pricing">
 
 <div class="price-card">
-
 <h3>پلن شرکتی</h3>
-
-<div class="price-value">
-۴,۹۰۰,۰۰۰ تومان
-</div>
+<div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
 
 <ul class="price-features">
-
 <li><i class="fas fa-check"></i> طراحی مدرن</li>
 <li><i class="fas fa-check"></i> ریسپانسیو کامل</li>
 <li><i class="fas fa-check"></i> پنل مدیریت</li>
 <li><i class="fas fa-check"></i> سئو پایه</li>
 <li><i class="fas fa-check"></i> پشتیبانی ۱ ماهه</li>
-
 </ul>
 
-<a href="tel:09011516162" class="order-btn">
-سفارش پروژه
-</a>
-
+<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
 </div>
 
 <div class="price-card featured">
 
-<div class="badge">
-پیشنهادی
-</div>
+<div class="badge">پیشنهادی</div>
 
 <h3>پلن فروشگاهی</h3>
-
-<div class="price-value">
-۸,۹۰۰,۰۰۰ تومان
-</div>
+<div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
 
 <ul class="price-features">
-
 <li><i class="fas fa-check"></i> فروشگاه کامل</li>
 <li><i class="fas fa-check"></i> مدیریت محصولات</li>
 <li><i class="fas fa-check"></i> اتصال درگاه پرداخت</li>
 <li><i class="fas fa-check"></i> سرعت بالا</li>
 <li><i class="fas fa-check"></i> پشتیبانی ۳ ماهه</li>
-
 </ul>
 
-<a href="tel:09011516162" class="order-btn">
-سفارش پروژه
-</a>
+<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
 
 </div>
 
@@ -456,9 +408,7 @@ d.getElementsByTagName("head")[0].appendChild(s);
 
 <h3>پلن اختصاصی</h3>
 
-<div class="price-value">
-تماس بگیرید
-</div>
+<div class="price-value">تماس بگیرید</div>
 
 <ul class="price-features">
 
@@ -482,9 +432,7 @@ d.getElementsByTagName("head")[0].appendChild(s);
 <div class="contact-section">
 
 <h2 style="text-align:center;margin-bottom:2rem">
-
 ارسال پیام مستقیم
-
 </h2>
 
 <form action="https://formspree.io/f/xaqzodlv" method="POST">
