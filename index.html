@@ -3,137 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت مهندسی علی یاری</title>
+    <title>شرکت طراحی سایت علی یاری | علی یار مهندس</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --bg-light: #f8fafc;
-            --text-dark: #1e293b;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --text-light: #f8fafc;
+            --card-bg: #ffffff;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+        body { background-color: #f1f5f9; color: var(--primary); line-height: 1.6; }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 2rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+        .container { max-width: 900px; margin: -3rem auto 2rem; padding: 0 1rem; }
 
         .card {
-            background: white;
+            background: var(--card-bg);
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
         }
 
-        h2 {
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
+        h2 { color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
 
-        .contact-form div {
-            margin-bottom: 1.2rem;
-        }
+        .service-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .service-item { background: #eff6ff; padding: 1rem; border-radius: 12px; border-right: 4px solid var(--accent); }
 
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            width: 100%;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        footer {
+        .contact-info {
             text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            font-size: 0.9rem;
+            background: var(--accent);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
         }
+
+        .phone-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            direction: ltr;
+        }
+
+        .phone-link:hover { text-decoration: underline; }
+
+        .form-group { margin-bottom: 1rem; text-align: right; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        input, textarea {
+            width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; transition: 0.3s;
+        }
+        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+
+        .btn-submit {
+            background: var(--accent); color: white; padding: 1rem; border: none; border-radius: 10px;
+            font-size: 1.1rem; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit:hover { background: #2563eb; transform: translateY(-2px); }
+
+        .call-action {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: #22c55e; color: white; padding: 1rem; border-radius: 10px;
+            text-decoration: none; font-weight: bold; margin-top: 1rem;
+        }
+
+        footer { text-align: center; padding: 2rem; color: #64748b; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>شرکت مهندسی علی یاری</h1>
-        <p>ارائه دهنده خدمات نوین مهندسی و تکنولوژی</p>
+        <h1>شرکت طراحی سایت علی یاری</h1>
+        <p>خالق ایده‌های دیجیتال و وب‌سایت‌های مدرن</p>
     </header>
 
     <div class="container">
-        <!-- بخش درباره ما -->
+        <!-- بخش خدمات -->
         <div class="card">
-            <h2><i class="fas fa-info-circle"></i> درباره ما</h2>
-            <p>ما با بهره‌گیری از متخصصین مجرب، بهترین راهکارهای مهندسی را برای کسب‌وکار شما فراهم می‌کنیم.</p>
+            <h2><i class="fas fa-code"></i> خدمات حرفه‌ای ما</h2>
+            <div class="service-list">
+                <div class="service-item">طراحی سایت شرکتی</div>
+                <div class="service-item">فروشگاه اینترنتی</div>
+                <div class="service-item">بهینه‌سازی سئو</div>
+                <div class="service-item">پشتیبانی فنی</div>
+            </div>
         </div>
 
-        <!-- بخش فرم تماس (متصل به Formspree) -->
+        <!-- بخش تماس مستقیم -->
+        <div class="contact-info">
+            <p>مشاوره رایگان و سفارش پروژه:</p>
+            <a href="tel:09011516162" class="phone-link">09011516162</a>
+            <a href="tel:09011516162" class="call-action">
+                <i class="fas fa-phone-alt"></i> همین حالا تماس بگیرید
+            </a>
+        </div>
+
+        <!-- بخش فرم پیام -->
         <div class="card">
-            <h2><i class="fas fa-envelope"></i> ارسال پیام به مدیریت</h2>
-            <form action="https://formspree.io/f/xaqzodlv" method="POST" class="contact-form">
-                <div>
-                    <label>نام شما:</label>
-                    <input type="text" name="name" placeholder="مثلاً: علی علوی" required>
+            <h2><i class="fas fa-paper-plane"></i> ارسال جزئیات پروژه</h2>
+            <form action="https://formspree.io/f/xaqzodlv" method="POST">
+                <div class="form-group">
+                    <label>نام و نام خانوادگی:</label>
+                    <input type="text" name="name" required>
                 </div>
-                <div>
-                    <label>ایمیل شما:</label>
-                    <input type="email" name="email" placeholder="email@example.com" required>
+                <div class="form-group">
+                    <label>شماره تماس یا ایمیل:</label>
+                    <input type="text" name="contact" required>
                 </div>
-                <div>
-                    <label>متن پیام:</label>
-                    <textarea name="message" rows="5" placeholder="پیام خود را اینجا بنویسید..." required></textarea>
+                <div class="form-group">
+                    <label>توضیحات پروژه:</label>
+                    <textarea name="message" rows="4" required></textarea>
                 </div>
-                <button type="submit">ارسال پیام</button>
+                <button type="submit" class="btn-submit">ثبت درخواست مشاوره</button>
             </form>
         </div>
     </div>
 
     <footer>
-        &copy; ۲۰۲۶ تمامی حقوق محفوظ است | طراحی شده توسط سیستم هوشمند
+        &copy; ۲۰۲۶ تمامی حقوق برای مهندس علی یاری محفوظ است.
     </footer>
 
 </body>
