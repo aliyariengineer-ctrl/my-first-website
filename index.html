@@ -111,43 +111,90 @@ color:var(--primary-color);
 margin-bottom:15px;
 }
 
-/* pricing */
+/* pricing professional */
+
+.pricing-section{
+padding:70px 5%;
+text-align:center;
+}
+
+.pricing-title{
+font-size:2rem;
+margin-bottom:10px;
+}
+
+.pricing-sub{
+color:#666;
+margin-bottom:40px;
+}
 
 .pricing{
-padding:60px 5%;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
 .price-card{
 background:white;
-padding:30px;
-border-radius:12px;
+padding:35px 25px;
+border-radius:14px;
 text-align:center;
-box-shadow:0 4px 6px rgba(0,0,0,0.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 transition:0.3s;
+position:relative;
 }
 
 .price-card:hover{
-transform:translateY(-10px);
+transform:translateY(-12px);
+}
+
+.price-card.featured{
+border:3px solid var(--primary-color);
+transform:scale(1.05);
+}
+
+.badge{
+position:absolute;
+top:-12px;
+right:20px;
+background:var(--primary-color);
+color:white;
+padding:5px 12px;
+border-radius:20px;
+font-size:0.8rem;
 }
 
 .price-value{
-font-size:1.8rem;
-color:var(--primary-color);
+font-size:2rem;
 font-weight:bold;
-margin:15px 0;
+color:var(--primary-color);
+margin:20px 0;
+}
+
+.price-features{
+list-style:none;
+margin:20px 0;
+text-align:right;
+}
+
+.price-features li{
+margin:10px 0;
+}
+
+.price-features i{
+color:var(--accent-color);
+margin-left:6px;
 }
 
 .order-btn{
 display:inline-block;
 background:var(--primary-color);
 color:white;
-padding:10px 20px;
-border-radius:6px;
+padding:12px 25px;
+border-radius:8px;
 text-decoration:none;
-margin-top:10px;
+margin-top:15px;
+font-weight:bold;
 }
 
 /* contact */
@@ -201,8 +248,6 @@ font-size:1.8rem;
 }
 
 </style>
-
-<!-- Crisp Chat -->
 
 <script type="text/javascript">
 window.$crisp=[];
@@ -267,27 +312,59 @@ d.getElementsByTagName("head")[0].appendChild(s);
 
 </section>
 
-<section class="pricing">
+<section class="pricing-section">
+
+<h2 class="pricing-title">تعرفه طراحی سایت</h2>
+<p class="pricing-sub">پلن مناسب کسب‌وکار خود را انتخاب کنید</p>
+
+<div class="pricing">
 
 <div class="price-card">
 <h3>پلن شرکتی</h3>
 <div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
-<p>مناسب معرفی خدمات و برندینگ</p>
+
+<ul class="price-features">
+<li><i class="fas fa-check"></i> طراحی مدرن و ریسپانسیو</li>
+<li><i class="fas fa-check"></i> پنل مدیریت ساده</li>
+<li><i class="fas fa-check"></i> سئو پایه</li>
+<li><i class="fas fa-check"></i> پشتیبانی ۱ ماهه</li>
+</ul>
+
 <a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
 </div>
 
-<div class="price-card">
+<div class="price-card featured">
+
+<div class="badge">پیشنهادی</div>
+
 <h3>پلن فروشگاهی</h3>
 <div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
-<p>راه‌اندازی فروشگاه کامل با مدیریت محصولات</p>
+
+<ul class="price-features">
+<li><i class="fas fa-check"></i> فروشگاه کامل</li>
+<li><i class="fas fa-check"></i> مدیریت محصولات</li>
+<li><i class="fas fa-check"></i> اتصال درگاه پرداخت</li>
+<li><i class="fas fa-check"></i> سئو و سرعت بالا</li>
+<li><i class="fas fa-check"></i> پشتیبانی ۳ ماهه</li>
+</ul>
+
 <a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
 </div>
 
 <div class="price-card">
 <h3>پلن اختصاصی</h3>
 <div class="price-value">تماس بگیرید</div>
-<p>طراحی کاملاً سفارشی بر اساس نیاز کسب‌وکار</p>
+
+<ul class="price-features">
+<li><i class="fas fa-check"></i> طراحی کاملاً سفارشی</li>
+<li><i class="fas fa-check"></i> امکانات خاص</li>
+<li><i class="fas fa-check"></i> توسعه اختصاصی</li>
+<li><i class="fas fa-check"></i> پشتیبانی ویژه</li>
+</ul>
+
 <a href="tel:09011516162" class="order-btn">دریافت مشاوره</a>
+</div>
+
 </div>
 
 </section>
