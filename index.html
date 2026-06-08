@@ -29,6 +29,7 @@ body{
 background:var(--light-color);
 color:var(--dark-color);
 line-height:1.6;
+overflow-x:hidden;
 }
 
 /* header */
@@ -70,17 +71,26 @@ color:white;
 
 .hero{
 background:
-linear-gradient(rgba(37,99,235,0.9),rgba(30,64,175,0.9)),
+linear-gradient(rgba(37,99,235,0.85),rgba(30,64,175,0.9)),
 url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1350&q=80');
 background-size:cover;
 background-position:center;
 color:white;
-padding:100px 5%;
+padding:120px 5%;
 text-align:center;
+background-attachment:fixed;
 }
 
 .hero h1{
 margin-bottom:15px;
+font-size:2rem;
+animation:fadeUp 1s ease forwards;
+}
+
+.hero p{
+opacity:0;
+animation:fadeUp 1s ease forwards;
+animation-delay:.4s;
 }
 
 /* services */
@@ -98,7 +108,14 @@ padding:30px;
 border-radius:12px;
 text-align:center;
 box-shadow:0 4px 6px rgba(0,0,0,0.05);
-transition:0.3s;
+transition:.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.service-card.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .service-card:hover{
@@ -138,18 +155,26 @@ margin:auto;
 }
 
 .price-card{
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(12px);
 padding:40px 30px;
 border-radius:18px;
 box-shadow:0 15px 40px rgba(0,0,0,0.08);
-transition:all .35s ease;
+transition:.4s;
 position:relative;
 border:1px solid rgba(255,255,255,0.4);
+
+opacity:0;
+transform:translateY(50px);
+}
+
+.price-card.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .price-card:hover{
-transform:translateY(-14px) scale(1.02);
+transform:translateY(-14px) scale(1.03);
 }
 
 .price-card.featured{
@@ -175,6 +200,10 @@ font-size:2.2rem;
 font-weight:bold;
 color:var(--primary-color);
 margin:20px 0;
+}
+
+.price-card.featured .price-value{
+color:white;
 }
 
 .price-features{
@@ -208,6 +237,11 @@ transition:.3s;
 background:var(--secondary-color);
 }
 
+.price-card.featured .order-btn{
+background:white;
+color:#2563eb;
+}
+
 /* contact */
 
 .contact-section{
@@ -217,29 +251,14 @@ max-width:800px;
 margin:70px auto;
 border-radius:15px;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
+opacity:0;
+transform:translateY(40px);
 }
 
-.form-group{
-margin-bottom:1.5rem;
-}
-
-input,textarea{
-width:100%;
-padding:0.8rem;
-border:1px solid #ddd;
-border-radius:6px;
-outline:none;
-}
-
-.send-btn{
-background:var(--primary-color);
-color:white;
-border:none;
-padding:1rem;
-border-radius:6px;
-cursor:pointer;
-width:100%;
-font-size:1.1rem;
+.contact-section.show{
+opacity:1;
+transform:translateY(0);
+transition:1s;
 }
 
 /* footer */
@@ -252,22 +271,22 @@ padding:2rem;
 margin-top:50px;
 }
 
-/* ===== scroll animation ===== */
+/* animations */
 
-.reveal{
+@keyframes fadeUp{
+from{
 opacity:0;
-transform:translateY(60px);
-transition:all 0.9s ease;
+transform:translateY(40px);
 }
-
-.reveal.active{
+to{
 opacity:1;
 transform:translateY(0);
+}
 }
 
 </style>
 
-<!-- Crisp Chat -->
+<!-- Crisp -->
 
 <script>
 window.$crisp=[];
@@ -296,14 +315,12 @@ document.head.appendChild(s);
 </div>
 </header>
 
-<section class="hero reveal">
+<section class="hero">
 <h1>کسب‌وکار شما لایق بهترین ویترین است</h1>
-<p>
-طراحی سایت‌های اختصاصی، فروشگاهی و شرکتی با جدیدترین تکنولوژی‌های روز
-</p>
+<p>طراحی سایت‌های اختصاصی، فروشگاهی و شرکتی با جدیدترین تکنولوژی‌های روز</p>
 </section>
 
-<section class="services reveal">
+<section class="services">
 
 <div class="service-card">
 <i class="fas fa-laptop-code"></i>
@@ -325,7 +342,7 @@ document.head.appendChild(s);
 
 </section>
 
-<section class="pricing-section reveal">
+<section class="pricing-section">
 
 <h2 class="pricing-title">تعرفه طراحی سایت</h2>
 <p class="pricing-sub">پلن مناسب کسب‌وکار خود را انتخاب کنید</p>
@@ -380,7 +397,7 @@ document.head.appendChild(s);
 </div>
 </section>
 
-<div class="contact-section reveal">
+<div class="contact-section">
 
 <h2 style="text-align:center;margin-bottom:2rem">
 ارسال پیام مستقیم
@@ -388,22 +405,19 @@ document.head.appendChild(s);
 
 <form action="https://formspree.io/f/xaqzodlv" method="POST">
 
-<div class="form-group">
-<label>نام و نام خانوادگی</label>
-<input type="text" name="name" required placeholder="نام شما">
+<div style="margin-bottom:1rem">
+<input type="text" name="name" required placeholder="نام و نام خانوادگی">
 </div>
 
-<div class="form-group">
-<label>ایمیل یا شماره تماس</label>
-<input type="text" name="contact" required placeholder="چطور با شما تماس بگیریم؟">
+<div style="margin-bottom:1rem">
+<input type="text" name="contact" required placeholder="ایمیل یا شماره تماس">
 </div>
 
-<div class="form-group">
-<label>توضیحات پروژه</label>
-<textarea name="message" rows="5" required placeholder="در مورد پروژه خود توضیح دهید"></textarea>
+<div style="margin-bottom:1rem">
+<textarea name="message" rows="5" required placeholder="توضیحات پروژه"></textarea>
 </div>
 
-<button type="submit" class="send-btn">
+<button type="submit" class="order-btn" style="width:100%">
 ارسال درخواست مشاوره
 </button>
 
@@ -418,17 +432,33 @@ document.head.appendChild(s);
 <script>
 
 function reveal(){
-var reveals=document.querySelectorAll(".reveal");
 
-for(var i=0;i<reveals.length;i++){
-var windowHeight=window.innerHeight;
-var elementTop=reveals[i].getBoundingClientRect().top;
-var elementVisible=100;
+let cards=document.querySelectorAll(".service-card");
+let prices=document.querySelectorAll(".price-card");
+let contact=document.querySelector(".contact-section");
 
-if(elementTop < windowHeight - elementVisible){
-reveals[i].classList.add("active");
+let trigger=window.innerHeight-120;
+
+cards.forEach((card,i)=>{
+if(card.getBoundingClientRect().top<trigger){
+setTimeout(()=>{
+card.classList.add("show");
+},i*150);
 }
+});
+
+prices.forEach((card,i)=>{
+if(card.getBoundingClientRect().top<trigger){
+setTimeout(()=>{
+card.classList.add("show");
+},i*200);
 }
+});
+
+if(contact.getBoundingClientRect().top<trigger){
+contact.classList.add("show");
+}
+
 }
 
 window.addEventListener("scroll",reveal);
