@@ -1,203 +1,912 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>طراحیار | طراحی سایت مدرن، فروشگاهی و سئو</title>
+  <meta name="description" content="طراحی سایت اختصاصی، فروشگاه اینترنتی و سئو با طراحیار. طراحی مدرن، حرفه‌ای و بهینه برای رشد کسب‌وکار شما." />
+  <meta name="theme-color" content="#0b1020" />
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg2:#0b1730;
+      --card:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.12);
+      --text:#ecf3ff;
+      --muted:#b7c6e0;
+      --primary:#7c9cff;
+      --primary2:#47d7ff;
+      --success:#34d399;
+      --shadow:0 10px 40px rgba(0,0,0,.28);
+      --radius:22px;
+      --radius-sm:16px;
+      --container:1180px;
+    }
 
-<title>طراحیار | طراحی سایت حرفه‌ای و مدرن</title>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Tahoma, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% -5%, rgba(71,215,255,.15), transparent 60%),
+        radial-gradient(700px 400px at 90% 0%, rgba(124,156,255,.16), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--container), calc(100% - 32px)); margin-inline:auto}
+    .glass{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
 
-<style>
+    .section{
+      padding:84px 0;
+      position:relative;
+    }
 
-:root {
-    --primary: #2563eb;
-    --primary-light: #60a5fa;
-    --bg-dark: #0f172a;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --text-main: #f8fafc;
-}
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:all .8s ease;
+    }
+    .reveal.show{
+      opacity:1;
+      transform:translateY(0);
+    }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    /* navbar */
+    .nav-wrap{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background:rgba(7,17,31,.45);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      font-size:1.15rem;
+    }
+    .brand-badge{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#06111f;
+      font-weight:900;
+      box-shadow:0 8px 24px rgba(71,215,255,.22);
+    }
+    .nav-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.98rem;
+    }
+    .nav-links a:hover{color:#fff}
+    .nav-cta{
+      padding:11px 18px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#06111f;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 10px 30px rgba(71,215,255,.22);
+    }
 
-body { background: #050505; color: white; overflow-x: hidden; }
+    /* hero */
+    .hero{
+      padding:72px 0 40px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .95fr;
+      gap:28px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      color:#d9e7ff;
+      font-size:.9rem;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.06);
+    }
+    .hero h1{
+      margin:18px 0 14px;
+      font-size:clamp(2rem, 4vw, 4rem);
+      line-height:1.2;
+      letter-spacing:-.5px;
+    }
+    .hero p{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:2;
+      max-width:720px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .btn{
+      padding:14px 20px;
+      border-radius:16px;
+      font-weight:700;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#06111f;
+      box-shadow:0 12px 30px rgba(71,215,255,.24);
+    }
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{
+      color:#fff;
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+    }
+    .btn-secondary:hover{background:rgba(255,255,255,.08)}
 
-/* Header */
-header {
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(15px);
-    padding: 1.2rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky; top: 0; z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+    .hero-card{
+      border-radius:28px;
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+      min-height:420px;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(71,215,255,.18), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(124,156,255,.22), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(52,211,153,.12), transparent 26%);
+      animation:floatGlow 9s linear infinite alternate;
+      pointer-events:none;
+    }
+    @keyframes floatGlow{
+      0%{transform:translateY(0) translateX(0) scale(1)}
+      100%{transform:translateY(-10px) translateX(8px) scale(1.05)}
+    }
+    .mock{
+      position:relative;
+      z-index:1;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.1);
+      padding:18px;
+      height:100%;
+      min-height:370px;
+      display:grid;
+      gap:14px;
+    }
+    .mock-top{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:#fff3;
+    }
+    .mock-screen{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      flex:1;
+    }
+    .panel{
+      border-radius:18px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel::after{
+      content:"";
+      position:absolute;
+      width:180px;height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(71,215,255,.20), transparent 60%);
+      top:var(--y,20px);
+      left:var(--x,20px);
+      pointer-events:none;
+      transition:.25s ease;
+    }
 
-.logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, #60a5fa, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    /* stats */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:28px;
+    }
+    .stat{
+      padding:18px;
+      border-radius:18px;
+      text-align:center;
+    }
+    .stat strong{
+      display:block;
+      font-size:1.6rem;
+      margin-bottom:6px;
+    }
+    .stat span{
+      color:var(--muted);
+      font-size:.92rem;
+    }
 
-.cta-btn {
-    text-decoration: none; color: white; padding: 0.6rem 1.5rem;
-    border-radius: 50px; background: #2563eb;
-    transition: 0.3s; font-weight: bold;
-}
-.cta-btn:hover { background: #1e40af; box-shadow: 0 0 20px rgba(37,99,235,0.5); }
+    /* section title */
+    .section-title{
+      text-align:center;
+      margin-bottom:26px;
+    }
+    .section-title h2{
+      margin:0 0 10px;
+      font-size:clamp(1.6rem,3vw,2.6rem);
+    }
+    .section-title p{
+      margin:0 auto;
+      color:var(--muted);
+      max-width:760px;
+      line-height:2;
+    }
 
-/* Hero */
-.hero {
-    padding: 120px 5%; text-align: center;
-    position: relative; overflow: hidden;
-}
+    /* services */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:30px;
+    }
+    .card{
+      padding:24px;
+      border-radius:22px;
+      position:relative;
+      overflow:hidden;
+      transition:transform .25s ease, border-color .25s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(124,156,255,.35);
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:auto -30px -30px auto;
+      width:180px;height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(124,156,255,.20), transparent 60%);
+      filter:blur(10px);
+      pointer-events:none;
+    }
+    .icon{
+      width:56px;height:56px;
+      border-radius:18px;
+      display:grid;place-items:center;
+      font-size:1.4rem;
+      margin-bottom:16px;
+      background:linear-gradient(135deg, rgba(124,156,255,.22), rgba(71,215,255,.18));
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.15rem;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:2;
+      font-size:.97rem;
+    }
 
-.hero::before {
-    content: ''; position: absolute; top: -50%; left: -20%;
-    width: 600px; height: 600px; background: radial-gradient(circle, #1e40af, transparent 70%);
-    filter: blur(100px); z-index: -1;
-}
+    /* pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:28px;
+    }
+    .price-card{
+      padding:26px;
+      border-radius:24px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:430px;
+    }
+    .price-card.featured{
+      border-color:rgba(71,215,255,.28);
+      transform:translateY(-6px);
+      box-shadow:0 16px 40px rgba(71,215,255,.12);
+    }
+    .badge{
+      position:absolute;
+      top:16px;
+      left:16px;
+      font-size:.82rem;
+      padding:7px 12px;
+      border-radius:999px;
+      color:#07111f;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      font-weight:700;
+    }
+    .price-card h3{
+      margin:0 0 8px;
+      font-size:1.25rem;
+    }
+    .price-sub{
+      color:var(--muted);
+      line-height:1.9;
+      min-height:62px;
+    }
+    .amount{
+      font-size:2rem;
+      font-weight:800;
+      margin:18px 0 8px;
+      color:#fff;
+    }
+    .price-card ul{
+      list-style:none;
+      margin:14px 0 24px;
+      padding:0;
+      display:grid;
+      gap:10px;
+      color:#d9e7ff;
+      flex:1;
+    }
+    .price-card li{
+      padding-right:18px;
+      position:relative;
+      line-height:1.8;
+    }
+    .price-card li::before{
+      content:"✓";
+      position:absolute;
+      right:0;
+      color:var(--success);
+      font-weight:700;
+    }
 
-.hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+    /* why us */
+    .features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:26px;
+    }
+    .feature{
+      padding:20px;
+      border-radius:20px;
+    }
+    .feature h4{
+      margin:12px 0 8px;
+      font-size:1.05rem;
+    }
+    .feature p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:.95rem;
+    }
 
-/* Services */
-.services { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    /* contact */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:30px;
+    }
+    .contact-card{
+      padding:24px;
+      border-radius:24px;
+    }
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:14px;
+      color:#dce8ff;
+    }
+    .contact-list div{
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
 
-.service-card {
-    background: rgba(255,255,255,0.03);
-    padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.5s; opacity: 0; transform: translateY(50px);
-}
-.service-card:hover { transform: translateY(-15px); border-color: #2563eb; background: rgba(37,99,235,0.05); }
+    form{
+      display:grid;
+      gap:12px;
+    }
+    input, textarea{
+      width:100%;
+      border:none;
+      outline:none;
+      border-radius:16px;
+      padding:14px 16px;
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.10);
+      font-family:inherit;
+      font-size:.98rem;
+    }
+    textarea{min-height:140px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:#b8c8e1}
 
-/* Pricing */
-.pricing-section { padding: 100px 5%; }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+    .footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top:24px;
+    }
 
-.price-card {
-    background: rgba(255,255,255,0.04); padding: 40px; border-radius: 30px;
-    border: 1px solid rgba(255,255,255,0.1); text-align: center;
-    position: relative; transition: 0.4s; overflow: hidden;
-    opacity: 0; transform: translateY(50px);
-}
+    /* payment modal */
+    .payment-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(2,6,23,.75);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      padding:18px;
+      z-index:99999;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .payment-box{
+      width:min(520px, 100%);
+      border-radius:24px;
+      padding:24px;
+      position:relative;
+      background:rgba(10,18,36,.82);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .payment-box::before{
+      content:"";
+      position:absolute;
+      inset:-20% auto auto -10%;
+      width:260px;height:260px;border-radius:50%;
+      background:radial-gradient(circle, rgba(71,215,255,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .payment-close{
+      position:absolute;
+      top:14px;
+      left:18px;
+      width:38px;height:38px;
+      border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      cursor:pointer;
+      font-size:1.2rem;
+    }
+    .payment-head{
+      margin-bottom:18px;
+    }
+    .payment-head h3{
+      margin:0 0 10px;
+      font-size:1.45rem;
+    }
+    .payment-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:.95rem;
+    }
+    .plan-chip{
+      display:inline-block;
+      margin-top:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.92rem;
+      background:rgba(124,156,255,.12);
+      border:1px solid rgba(124,156,255,.22);
+      color:#e5eeff;
+    }
+    .pay-price{
+      font-size:1.45rem;
+      font-weight:800;
+      color:#7fd9ff;
+      margin-top:12px;
+    }
+    .card-panel{
+      margin:18px 0 16px;
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .card-panel .label{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:8px;
+    }
+    .card-number{
+      font-size:1.4rem;
+      letter-spacing:1px;
+      font-weight:800;
+      color:#fff;
+      margin-bottom:12px;
+      direction:ltr;
+      text-align:center;
+    }
+    .copy-btn{
+      width:100%;
+      padding:12px 16px;
+      border:none;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:700;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#07111f;
+    }
+    .payment-note{
+      margin:12px 0 16px;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:.92rem;
+    }
+    .full{width:100%}
+    .small-note{
+      margin-top:10px;
+      color:#95a8c8;
+      font-size:.86rem;
+      line-height:1.8;
+    }
 
-.price-card:hover { transform: scale(1.02); border-color: #60a5fa; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    /* back to top */
+    .to-top{
+      position:fixed;
+      left:18px;
+      bottom:18px;
+      width:52px;height:52px;
+      border:none;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#06111f;
+      font-size:1.2rem;
+      font-weight:900;
+      cursor:pointer;
+      display:none;
+      z-index:999;
+      box-shadow:0 10px 30px rgba(71,215,255,.28);
+    }
 
-.price-card.featured { border: 2px solid #2563eb; }
+    @media (max-width: 1024px){
+      .hero-grid,
+      .contact-wrap{
+        grid-template-columns:1fr;
+      }
+      .cards,
+      .pricing{
+        grid-template-columns:1fr 1fr;
+      }
+      .features{
+        grid-template-columns:1fr 1fr;
+      }
+      .stats{
+        grid-template-columns:1fr 1fr;
+      }
+    }
 
-.price-value { font-size: 2rem; font-weight: bold; margin: 20px 0; color: #60a5fa; }
-
-.price-features { list-style: none; text-align: right; margin-bottom: 30px; }
-.price-features li { margin-bottom: 10px; opacity: 0.8; }
-
-/* Forms */
-.contact-section { max-width: 600px; margin: 100px auto; padding: 50px; background: rgba(255,255,255,0.03); border-radius: 30px; }
-input, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid #334155; padding: 15px; border-radius: 12px; color: white; margin-bottom: 15px; }
-
-/* Animations */
-.reveal.show { opacity: 1; transform: translateY(0); transition: 0.8s ease-out; }
-</style>
-
-<!-- Crisp Chat -->
-<script>
-window.$crisp=[];
-window.CRISP_WEBSITE_ID="5c421b2c-e6b3-4a70-8428-49c0b6b6041a";
-(function(){
-d=document; s=d.createElement("script");
-s.src="https://client.crisp.chat/l.js"; s.async=1;
-document.head.appendChild(s);
-})();
-</script>
+    @media (max-width: 640px){
+      .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+      .nav-links{
+        justify-content:center;
+      }
+      .hero{
+        padding-top:42px;
+      }
+      .cards,
+      .pricing,
+      .features,
+      .stats{
+        grid-template-columns:1fr;
+      }
+      .hero-actions{
+        flex-direction:column;
+      }
+      .btn, .nav-cta{width:100%}
+      .mock-screen{grid-template-columns:1fr}
+      .card-number{font-size:1.15rem}
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-    <div class="logo">طراحیار</div>
-    <a href="tel:09011516162" class="cta-btn">تماس: ۰۹۰۱۱۵۱۶۱۶۲</a>
-</header>
+  <div class="nav-wrap">
+    <nav class="nav container">
+      <div class="brand">
+        <div class="brand-badge">ط</div>
+        <span>طراحیار</span>
+      </div>
 
-<section class="hero reveal">
-    <h1>آینده کسب‌وکارت را<br><span style="color:#60a5fa">امروز طراحی کن</span></h1>
-    <p style="opacity:0.7; font-size:1.2rem; max-width:600px; margin:0 auto">سریع‌ترین، مدرن‌ترین و حرفه‌ای‌ترین وب‌سایت‌ها با تکنولوژی‌های روز دنیا.</p>
-</section>
+      <div class="nav-links">
+        <a href="#home">خانه</a>
+        <a href="#services">خدمات</a>
+        <a href="#pricing">پلن‌ها</a>
+        <a href="#whyus">چرا ما</a>
+        <a href="#contact">تماس با ما</a>
+      </div>
 
-<section class="services reveal">
-    <div class="service-card">
-        <i class="fas fa-laptop-code" style="font-size:2.5rem; color:#60a5fa; margin-bottom:20px"></i>
-        <h3>طراحی اختصاصی</h3>
-        <p>بدون قالب آماده، کاملاً اختصاصی و متناسب با برند شما.</p>
-    </div>
-    <div class="service-card">
-        <i class="fas fa-shopping-cart" style="font-size:2.5rem; color:#60a5fa; margin-bottom:20px"></i>
-        <h3>فروشگاه آنلاین</h3>
-        <p>سیستم فروش حرفه‌ای با اتصال مستقیم به درگاه پرداخت.</p>
-    </div>
-    <div class="service-card">
-        <i class="fas fa-rocket" style="font-size:2.5rem; color:#60a5fa; margin-bottom:20px"></i>
-        <h3>سئو و سرعت</h3>
-        <p>دیده شدن در نتایج گوگل با کدنویسی بهینه و پرسرعت.</p>
-    </div>
-</section>
+      <a class="nav-cta" href="#pricing">شروع سفارش</a>
+    </nav>
+  </div>
 
-<section class="pricing-section">
-    <h2 style="text-align:center; font-size:2.5rem">پلن‌های تعرفه</h2>
-    <div class="pricing-grid">
-        <div class="price-card reveal">
-            <h3>پلن شرکتی</h3>
-            <div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
-            <ul class="price-features">
-                <li>طراحی ریسپانسیو</li>
-                <li>مدیریت آسان</li>
-                <li>پشتیبانی ۱ ماهه</li>
-            </ul>
-            <a href="tel:09011516162" class="cta-btn" style="display:block">انتخاب</a>
+  <header id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="reveal show">
+        <span class="eyebrow glass">طراحی سایت حرفه‌ای برای رشد واقعی کسب‌وکار</span>
+        <h1>سایت مدرن، سریع و حرفه‌ای برای برند شما</h1>
+        <p>
+          در طراحیار، طراحی سایت اختصاصی، فروشگاه اینترنتی و سئو را با استانداردهای
+          مدرن انجام می‌دهیم؛ از ظاهر چشم‌نواز و تجربه کاربری روان گرفته تا بهینه‌سازی
+          برای گوگل و افزایش اعتماد مشتری.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pricing">مشاهده پلن‌ها</a>
+          <a class="btn btn-secondary" href="#contact">مشاوره و تماس</a>
         </div>
-        <div class="price-card featured reveal">
-            <div style="background:#2563eb; padding:2px 15px; border-radius:20px; font-size:0.8rem; display:inline-block">پیشنهادی</div>
-            <h3>پلن فروشگاهی</h3>
-            <div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
-            <ul class="price-features">
-                <li>فروشگاه کامل</li>
-                <li>درگاه پرداخت آنلاین</li>
-                <li>پشتیبانی ۳ ماهه</li>
-            </ul>
-            <a href="tel:09011516162" class="cta-btn" style="display:block; background:#60a5fa; color:#000">انتخاب</a>
+
+        <div class="stats">
+          <div class="stat glass">
+            <strong>مدرن</strong>
+            <span>طراحی شیشه‌ای و حرفه‌ای</span>
+          </div>
+          <div class="stat glass">
+            <strong>سریع</strong>
+            <span>بهینه‌سازی برای سرعت</span>
+          </div>
+          <div class="stat glass">
+            <strong>واکنش‌گرا</strong>
+            <span>سازگار با موبایل و دسکتاپ</span>
+          </div>
+          <div class="stat glass">
+            <strong>سئو</strong>
+            <span>قابل رشد در نتایج گوگل</span>
+          </div>
         </div>
-        <div class="price-card reveal">
-            <h3>پلن اختصاصی</h3>
-            <div class="price-value">تماس بگیرید</div>
-            <ul class="price-features">
-                <li>امکانات نامحدود</li>
-                <li>طراحی سفارشی</li>
-                <li>پشتیبانی مادام‌العمر</li>
-            </ul>
-            <a href="tel:09011516162" class="cta-btn" style="display:block">مشاوره</a>
+      </div>
+
+      <div class="hero-card glass reveal">
+        <div class="mock">
+          <div class="mock-top">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="mock-screen">
+            <div class="panel" onmousemove="moveGlow(event,this)">
+              <h3 style="margin-top:0">صفحه اصلی حرفه‌ای</h3>
+              <p style="color:var(--muted);line-height:2">
+                طراحی مدرن با ساختار مناسب برای معرفی خدمات، نمونه‌کار و دریافت سفارش.
+              </p>
+            </div>
+            <div class="panel" onmousemove="moveGlow(event,this)">
+              <h3 style="margin-top:0">فروشگاه اینترنتی</h3>
+              <p style="color:var(--muted);line-height:2">
+                طراحی اختصاصی فروشگاه، صفحات محصول، دسته‌بندی و تجربه خرید بهتر.
+              </p>
+            </div>
+            <div class="panel" onmousemove="moveGlow(event,this)">
+              <h3 style="margin-top:0">سئو و بهینه‌سازی</h3>
+              <p style="color:var(--muted);line-height:2">
+                ساختار درست، سرعت مناسب، محتوای هدفمند و پایه‌گذاری برای رشد ارگانیک.
+              </p>
+            </div>
+            <div class="panel" onmousemove="moveGlow(event,this)">
+              <h3 style="margin-top:0">ارتباط آسان</h3>
+              <p style="color:var(--muted);line-height:2">
+                فرم تماس، چت آنلاین و سیستم ثبت سفارش برای تبدیل بهتر بازدیدکننده به مشتری.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </header>
 
-<section class="contact-section reveal">
-    <h2 style="text-align:center; margin-bottom:20px">ارسال پیام</h2>
-    <form action="https://formspree.io/f/xaqzodlv" method="POST">
-        <input type="text" name="name" placeholder="نام شما" required>
-        <input type="text" name="contact" placeholder="شماره تماس" required>
-        <textarea name="message" rows="4" placeholder="توضیحات پروژه" required></textarea>
-        <button type="submit" class="cta-btn" style="width:100%; border:none; cursor:pointer">ارسال درخواست</button>
-    </form>
-</section>
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>خدمات طراحیار</h2>
+        <p>
+          ما خدمات طراحی و توسعه سایت را به‌صورت حرفه‌ای و متناسب با نیاز کسب‌وکار شما ارائه می‌کنیم.
+        </p>
+      </div>
 
-<footer style="text-align:center; padding:40px; opacity:0.5; font-size:0.9rem">
-    تمامی حقوق محفوظ است © ۲۰۲۶ | طراحیار
-</footer>
+      <div class="cards">
+        <div class="card glass reveal">
+          <div class="icon">🎨</div>
+          <h3>طراحی اختصاصی سایت</h3>
+          <p>
+            طراحی رابط کاربری حرفه‌ای، هویت بصری منسجم و تجربه کاربری مدرن برای معرفی برند و خدمات شما.
+          </p>
+        </div>
 
-<script>
-// انیمیشن‌های اسکرول
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-    });
-}, { threshold: 0.1 });
+        <div class="card glass reveal">
+          <div class="icon">🛒</div>
+          <h3>فروشگاه اینترنتی</h3>
+          <p>
+            ساخت فروشگاه آنلاین حرفه‌ای با ساختار مناسب محصولات، صفحات فروش و مسیر سفارش‌دهی شفاف.
+          </p>
+        </div>
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-</script>
+        <div class="card glass reveal">
+          <div class="icon">🚀</div>
+          <h3>سئو و بهینه‌سازی</h3>
+          <p>
+            بهبود سرعت، ساختار فنی، سئوی داخلی و آماده‌سازی سایت برای دیده‌شدن بهتر در گوگل.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</body>
-</html>
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>پلن‌های ثبت سفارش</h2>
+        <p>
+          بر اساس نیاز کسب‌وکار خود، پلن مناسب را انتخاب کنید. با کلیک روی هر پلن،
+          پرتال پرداخت اختصاصی همان پلن برای شما باز می‌شود.
+        </p>
+      </div>
+
+      <div class="pricing">
+        <div class="price-card glass reveal">
+          <h3>پلن شرکتی</h3>
+          <p class="price-sub">
+            مناسب برای معرفی خدمات، برند شخصی یا کسب‌وکارهایی که به یک سایت شیک و قابل‌اعتماد نیاز دارند.
+          </p>
+          <div class="amount">۸٬۰۰۰٬۰۰۰ تومان</div>
+          <ul>
+            <li>طراحی صفحه اصلی حرفه‌ای</li>
+            <li>فرم تماس و ارتباط با مشتری</li>
+            <li>نمایش خدمات و درباره ما</li>
+            <li>کاملاً ریسپانسیو</li>
+            <li>بهینه‌سازی اولیه سرعت</li>
+          </ul>
+          <button class="btn btn-secondary"
+            onclick="openPaymentPortal('شرکتی','۸٬۰۰۰٬۰۰۰ تومان','مناسب برای سایت‌های معرفی خدمات و برندهای شخصی')">
+            ثبت سفارش پلن شرکتی
+          </button>
+        </div>
+
+        <div class="price-card glass featured reveal">
+          <span class="badge">پیشنهاد ویژه</span>
+          <h3>پلن فروشگاهی</h3>
+          <p class="price-sub">
+            مناسب برای فروش آنلاین محصولات با طراحی حرفه‌ای و ظاهر قابل‌اعتماد برای افزایش نرخ تبدیل.
+          </p>
+          <div class="amount">۱۲٬۰۰۰٬۰۰۰ تومان</div>
+          <ul>
+            <li>طراحی ساختار فروشگاهی حرفه‌ای</li>
+            <li>صفحه محصولات و دسته‌بندی‌ها</li>
+            <li>صفحه اختصاصی هر محصول</li>
+            <li>بهینه‌سازی تجربه خرید</li>
+            <li>طراحی مدرن و واکنش‌گرا</li>
+          </ul>
+          <button class="btn btn-primary"
+            onclick="openPaymentPortal('فروشگاهی','۱۲٬۰۰۰٬۰۰۰ تومان','مناسب برای راه‌اندازی فروشگاه اینترنتی حرفه‌ای و توسعه فروش آنلاین')">
+            ثبت سفارش پلن فروشگاهی
+          </button>
+        </div>
+
+        <div class="price-card glass reveal">
+          <h3>پلن اختصاصی</h3>
+          <p class="price-sub">
+            برای پروژه‌های ویژه، امکانات سفارشی، ایده‌های خاص و کسب‌وکارهایی که نیاز به طراحی کاملاً اختصاصی دارند.
+          </p>
+          <div class="amount">توافقی</div>
+          <ul>
+            <li>طراحی و توسعه سفارشی</li>
+            <li>امکانات خاص بر اساس نیاز پروژه</li>
+            <li>مشاوره تخصصی قبل از اجرا</li>
+            <li>ساختار اختصاصی و برندمحور</li>
+            <li>قابل توسعه برای آینده</li>
+          </ul>
+          <button class="btn btn-secondary"
+            onclick="openPaymentPortal('اختصاصی','توافقی','برای پروژه‌های ویژه و طراحی کاملاً سفارشی')">
+            ثبت سفارش پلن اختصاصی
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="whyus" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>چرا طراحیار؟</h2>
+        <p>
+          ما فقط یک سایت تحویل نمی‌دهیم؛ بلکه تلاش می‌کنیم ابزاری برای اعتمادسازی، جذب مشتری و رشد برند شما بسازیم.
+        </p>
+      </div>
+
+      <div class="features">
+        <div class="feature glass reveal">
+          <div class="icon">⚡</div>
+          <h4>تحویل حرفه‌ای</h4>
+          <p>ساختار منظم، طراحی چشم‌نواز و رعایت جزئیات برای ارائه یک خروجی قابل‌اعتماد.</p>
+        </div>
+        <div class="feature glass reveal">
+          <div class="icon">📱</div>
+          <h4>کاملاً ریسپانسیو</h4>
+          <p>نمایش درست و استاندارد در موبایل، تبلت و دسکتاپ برای پوشش کامل کاربران.</p>
+        </div>
+        <div class="feature glass reveal">
+          <div class="icon">🔒</div>
+          <h4>مسیر سفارش شفاف</h4>
+          <p>کاربر دقیقاً می‌داند چه پلنی را انتخاب کرده و اطلاعات پرداختش برای همان پلن ثبت می‌شود.</p>
+        </div>
+        <div class="feature glass reveal">
+          <div class="icon">📈</div>
+          <h4>نگاه تجاری</h4>
+          <p>سایت فقط ظاهر زیبا ندارد؛ برای اعتمادسازی، ارتباط بهتر و تبدیل بازدیدکننده به مشتری طراحی می‌شود.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>تماس با ما</h2>
+        <p>
+          برای مشاوره، ثبت درخواست یا شروع همکاری، از طریق فرم تماس یا شماره مستقیم با ما در ارتباط باشید.
+        </p>
+      </div>
+
+      <div class="contact-w        <div class="contact-card glass reveal">
+          <h3 style="margin-top:0">اطلاعات ارتباطی</h3>
+          <div class="contact-list">
+            <div>📞 شماره تماس: <strong>09011516162</strong></div>
+            <div>💬 پشتیبانی آنلاین: از طریق چت سایت</div>
+            <div>🕒 پاسخ‌گویی: در سریع‌ترین زمان ممکن</
