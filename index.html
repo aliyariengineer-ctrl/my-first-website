@@ -872,27 +872,78 @@
         </div>
     </footer>
 
-    <!-- مودال هوشمند پرداخت غیرمستقیم -->
-    <div class="modal" id="paymentModal">
-        <div class="modal-card">
-            <div class="modal-icon">💳</div>
-            <h3 id="modalPlanName">سفارش پلن</h3>
-            <p class="desc">برای تکمیل فرآیند سفارش، مبلغ مشخص شده را به شماره کارت زیر واریز نموده و فیش را در چت آنلاین ارسال کنید.</p>
-            
-            <div class="modal-price" id="modalPlanPrice">۰ تومان</div>
-            
-            <div class="card-number-box" onclick="copyCardNumber()">
-                <span style="font-size: 0.85rem; color: var(--secondary); display: block; margin-bottom: 5px;">برای کپی کردن شماره کارت کلیک کنید</span>
-                <span class="card-number" id="cardNumber">6219861950016732</span>
-                <span class="copy-toast" id="copyStatus">جهت کپی کلیک کنید</span>
-            </div>
+  <!-- مودال پرتال پرداخت -->
+<div class="modal" id="paymentModal">
+<div class="modal-card">
 
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <button class="btn btn-secondary" onclick="closePaymentModal()">انصراف</button>
-                <a href="tel:09011516162" class="btn btn-primary">تایید تلفنی</a>
-            </div>
-        </div>
-    </div>
+<!-- مرحله اول -->
+<div id="step1">
+
+<div class="modal-icon">💳</div>
+<h3 id="modalPlanName">سفارش پلن</h3>
+
+<p class="desc">مبلغ را به کارت زیر واریز کنید سپس روی «پرداخت انجام شد» بزنید.</p>
+
+<div class="modal-price" id="modalPlanPrice">۰ تومان</div>
+
+<div class="card-number-box" onclick="copyCardNumber()">
+<span style="font-size:0.85rem;color:var(--secondary);display:block;margin-bottom:5px">
+برای کپی شماره کارت کلیک کنید
+</span>
+
+<span class="card-number" id="cardNumber">
+6219861950016732
+</span>
+
+<span class="copy-toast" id="copyStatus">
+جهت کپی کلیک کنید
+</span>
+</div>
+
+<div style="display:flex;gap:10px;justify-content:center">
+<button class="btn btn-secondary" onclick="closePaymentModal()">انصراف</button>
+<button class="btn btn-primary" onclick="showForm()">پرداخت انجام شد</button>
+</div>
+
+</div>
+
+
+<!-- مرحله دوم -->
+<div id="step2" style="display:none">
+
+<div class="modal-icon">🧾</div>
+<h3>ثبت اطلاعات پرداخت</h3>
+
+<form action="submit-order.php" method="POST">
+
+<input type="hidden" name="plan" id="selectedPlan">
+
+<div class="form-group">
+<label>نام</label>
+<input class="form-control" name="name" required>
+</div>
+
+<div class="form-group">
+<label>شماره تلفن</label>
+<input class="form-control" name="phone" required>
+</div>
+
+<div class="form-group">
+<label>کد رهگیری پرداخت</label>
+<input class="form-control" name="tracking" required>
+</div>
+
+<button class="btn btn-primary" style="width:100%">
+ثبت سفارش
+</button>
+
+</form>
+
+</div>
+
+</div>
+</div>
+
 
     <!-- اسکریپت‌ها -->
     <script>
@@ -936,11 +987,22 @@
         }
 
         // عملکرد مودال پرداخت هوشمند
-        function openPaymentModal(planName, price) {
-            document.getElementById('modalPlanName').textContent = 'سفارش ' + planName;
-            document.getElementById('modalPlanPrice').textContent = price;
-            document.getElementById('paymentModal').classList.add('active');
-        }
+       function openPaymentModal(planName, price) {
+
+document.getElementById('modalPlanName').textContent = 'سفارش ' + planName;
+document.getElementById('modalPlanPrice').textContent = price;
+
+document.getElementById('selectedPlan').value = planName;
+
+document.getElementById('step1').style.display="block";
+document.getElementById('step2').style.display="none";
+
+document.getElementById('paymentModal').classList.add('active');
+}
+function showForm(){
+document.getElementById('step1').style.display="none";
+document.getElementById('step2').style.display="block";
+}
 
         function closePaymentModal() {
             document.getElementById('paymentModal').classList.remove('active');
