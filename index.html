@@ -10,459 +10,193 @@
 
 <style>
 
-:root{
---primary-color:#2563eb;
---secondary-color:#1e40af;
---accent-color:#22c55e;
---dark-color:#1f2937;
---light-color:#f3f4f6;
+:root {
+    --primary: #2563eb;
+    --primary-light: #60a5fa;
+    --bg-dark: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-main: #f8fafc;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:tahoma;
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+
+body { background: #050505; color: white; overflow-x: hidden; }
+
+/* Header */
+header {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-body{
-background:var(--light-color);
-color:var(--dark-color);
-line-height:1.6;
-overflow-x:hidden;
+.logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, #60a5fa, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.cta-btn {
+    text-decoration: none; color: white; padding: 0.6rem 1.5rem;
+    border-radius: 50px; background: #2563eb;
+    transition: 0.3s; font-weight: bold;
+}
+.cta-btn:hover { background: #1e40af; box-shadow: 0 0 20px rgba(37,99,235,0.5); }
+
+/* Hero */
+.hero {
+    padding: 120px 5%; text-align: center;
+    position: relative; overflow: hidden;
 }
 
-/* header */
-
-header{
-background:white;
-padding:1rem 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:1000;
+.hero::before {
+    content: ''; position: absolute; top: -50%; left: -20%;
+    width: 600px; height: 600px; background: radial-gradient(circle, #1e40af, transparent 70%);
+    filter: blur(100px); z-index: -1;
 }
 
-.logo{
-font-size:1.6rem;
-font-weight:bold;
-color:var(--primary-color);
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+
+/* Services */
+.services { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.service-card {
+    background: rgba(255,255,255,0.03);
+    padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.5s; opacity: 0; transform: translateY(50px);
+}
+.service-card:hover { transform: translateY(-15px); border-color: #2563eb; background: rgba(37,99,235,0.05); }
+
+/* Pricing */
+.pricing-section { padding: 100px 5%; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+
+.price-card {
+    background: rgba(255,255,255,0.04); padding: 40px; border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.1); text-align: center;
+    position: relative; transition: 0.4s; overflow: hidden;
+    opacity: 0; transform: translateY(50px);
 }
 
-.contact-info a{
-text-decoration:none;
-color:var(--dark-color);
-font-weight:bold;
-border:2px solid var(--primary-color);
-padding:0.5rem 1rem;
-border-radius:6px;
-transition:0.3s;
-}
+.price-card:hover { transform: scale(1.02); border-color: #60a5fa; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 
-.contact-info a:hover{
-background:var(--primary-color);
-color:white;
-}
+.price-card.featured { border: 2px solid #2563eb; }
 
-/* hero */
+.price-value { font-size: 2rem; font-weight: bold; margin: 20px 0; color: #60a5fa; }
 
-.hero{
-background:
-linear-gradient(rgba(37,99,235,0.85),rgba(30,64,175,0.9)),
-url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1350&q=80');
-background-size:cover;
-background-position:center;
-color:white;
-padding:120px 5%;
-text-align:center;
-background-attachment:fixed;
-}
+.price-features { list-style: none; text-align: right; margin-bottom: 30px; }
+.price-features li { margin-bottom: 10px; opacity: 0.8; }
 
-.hero h1{
-margin-bottom:15px;
-font-size:2rem;
-animation:fadeUp 1s ease forwards;
-}
+/* Forms */
+.contact-section { max-width: 600px; margin: 100px auto; padding: 50px; background: rgba(255,255,255,0.03); border-radius: 30px; }
+input, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid #334155; padding: 15px; border-radius: 12px; color: white; margin-bottom: 15px; }
 
-.hero p{
-opacity:0;
-animation:fadeUp 1s ease forwards;
-animation-delay:.4s;
-}
-
-/* services */
-
-.services{
-padding:60px 5%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.service-card{
-background:white;
-padding:30px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 4px 6px rgba(0,0,0,0.05);
-transition:.4s;
-opacity:0;
-transform:translateY(40px);
-}
-
-.service-card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.service-card:hover{
-transform:translateY(-10px);
-}
-
-.service-card i{
-font-size:3rem;
-color:var(--primary-color);
-margin-bottom:15px;
-}
-
-/* pricing */
-
-.pricing-section{
-padding:90px 5%;
-background:linear-gradient(180deg,#f8fafc,#eef2ff);
-text-align:center;
-}
-
-.pricing-title{
-font-size:2.2rem;
-margin-bottom:10px;
-}
-
-.pricing-sub{
-color:#666;
-margin-bottom:50px;
-}
-
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-max-width:1100px;
-margin:auto;
-}
-
-.price-card{
-background:rgba(255,255,255,0.75);
-backdrop-filter:blur(12px);
-padding:40px 30px;
-border-radius:18px;
-box-shadow:0 15px 40px rgba(0,0,0,0.08);
-transition:.4s;
-position:relative;
-border:1px solid rgba(255,255,255,0.4);
-
-opacity:0;
-transform:translateY(50px);
-}
-
-.price-card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.price-card:hover{
-transform:translateY(-14px) scale(1.03);
-}
-
-.price-card.featured{
-background:linear-gradient(135deg,#2563eb,#4f46e5);
-color:white;
-transform:scale(1.06);
-}
-
-.badge{
-position:absolute;
-top:-14px;
-right:25px;
-background:#22c55e;
-color:white;
-padding:6px 14px;
-border-radius:30px;
-font-size:0.8rem;
-font-weight:bold;
-}
-
-.price-value{
-font-size:2.2rem;
-font-weight:bold;
-color:var(--primary-color);
-margin:20px 0;
-}
-
-.price-card.featured .price-value{
-color:white;
-}
-
-.price-features{
-list-style:none;
-margin:25px 0;
-text-align:right;
-}
-
-.price-features li{
-margin:12px 0;
-font-size:0.95rem;
-}
-
-.price-features i{
-margin-left:7px;
-color:#22c55e;
-}
-
-.order-btn{
-display:inline-block;
-background:var(--primary-color);
-color:white;
-padding:13px 28px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-transition:.3s;
-}
-
-.order-btn:hover{
-background:var(--secondary-color);
-}
-
-.price-card.featured .order-btn{
-background:white;
-color:#2563eb;
-}
-
-/* contact */
-
-.contact-section{
-background:white;
-padding:50px 5%;
-max-width:800px;
-margin:70px auto;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-opacity:0;
-transform:translateY(40px);
-}
-
-.contact-section.show{
-opacity:1;
-transform:translateY(0);
-transition:1s;
-}
-
-/* footer */
-
-footer{
-background:var(--dark-color);
-color:white;
-text-align:center;
-padding:2rem;
-margin-top:50px;
-}
-
-/* animations */
-
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
+/* Animations */
+.reveal.show { opacity: 1; transform: translateY(0); transition: 0.8s ease-out; }
 </style>
 
-<!-- Crisp -->
-
+<!-- Crisp Chat -->
 <script>
 window.$crisp=[];
 window.CRISP_WEBSITE_ID="5c421b2c-e6b3-4a70-8428-49c0b6b6041a";
 (function(){
-d=document;
-s=d.createElement("script");
-s.src="https://client.crisp.chat/l.js";
-s.async=1;
+d=document; s=d.createElement("script");
+s.src="https://client.crisp.chat/l.js"; s.async=1;
 document.head.appendChild(s);
 })();
 </script>
-
 </head>
 
 <body>
 
 <header>
-<div class="logo">طراحیار</div>
-
-<div class="contact-info">
-<a href="tel:09011516162">
-<i class="fas fa-phone"></i>
-09011516162
-</a>
-</div>
+    <div class="logo">طراحیار</div>
+    <a href="tel:09011516162" class="cta-btn">تماس: ۰۹۰۱۱۵۱۶۱۶۲</a>
 </header>
 
-<section class="hero">
-<h1>کسب‌وکار شما لایق بهترین ویترین است</h1>
-<p>طراحی سایت‌های اختصاصی، فروشگاهی و شرکتی با جدیدترین تکنولوژی‌های روز</p>
+<section class="hero reveal">
+    <h1>آینده کسب‌وکارت را<br><span style="color:#60a5fa">امروز طراحی کن</span></h1>
+    <p style="opacity:0.7; font-size:1.2rem; max-width:600px; margin:0 auto">سریع‌ترین، مدرن‌ترین و حرفه‌ای‌ترین وب‌سایت‌ها با تکنولوژی‌های روز دنیا.</p>
 </section>
 
-<section class="services">
-
-<div class="service-card">
-<i class="fas fa-laptop-code"></i>
-<h3>طراحی سایت اختصاصی</h3>
-<p>ساخت سایت حرفه‌ای متناسب با نیاز کسب‌وکار شما</p>
-</div>
-
-<div class="service-card">
-<i class="fas fa-shopping-cart"></i>
-<h3>فروشگاه اینترنتی</h3>
-<p>راه‌اندازی فروشگاه آنلاین با درگاه پرداخت</p>
-</div>
-
-<div class="service-card">
-<i class="fas fa-rocket"></i>
-<h3>سئو و بهینه‌سازی</h3>
-<p>بهبود رتبه سایت در نتایج گوگل</p>
-</div>
-
+<section class="services reveal">
+    <div class="service-card">
+        <i class="fas fa-laptop-code" style="font-size:2.5rem; color:#60a5fa; margin-bottom:20px"></i>
+        <h3>طراحی اختصاصی</h3>
+        <p>بدون قالب آماده، کاملاً اختصاصی و متناسب با برند شما.</p>
+    </div>
+    <div class="service-card">
+        <i class="fas fa-shopping-cart" style="font-size:2.5rem; color:#60a5fa; margin-bottom:20px"></i>
+        <h3>فروشگاه آنلاین</h3>
+        <p>سیستم فروش حرفه‌ای با اتصال مستقیم به درگاه پرداخت.</p>
+    </div>
+    <div class="service-card">
+        <i class="fas fa-rocket" style="font-size:2.5rem; color:#60a5fa; margin-bottom:20px"></i>
+        <h3>سئو و سرعت</h3>
+        <p>دیده شدن در نتایج گوگل با کدنویسی بهینه و پرسرعت.</p>
+    </div>
 </section>
 
 <section class="pricing-section">
-
-<h2 class="pricing-title">تعرفه طراحی سایت</h2>
-<p class="pricing-sub">پلن مناسب کسب‌وکار خود را انتخاب کنید</p>
-
-<div class="pricing">
-
-<div class="price-card">
-<h3>پلن شرکتی</h3>
-<div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
-
-<ul class="price-features">
-<li><i class="fas fa-check"></i> طراحی مدرن و ریسپانسیو</li>
-<li><i class="fas fa-check"></i> پنل مدیریت ساده</li>
-<li><i class="fas fa-check"></i> سئو پایه</li>
-<li><i class="fas fa-check"></i> پشتیبانی ۱ ماهه</li>
-</ul>
-
-<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
-</div>
-
-<div class="price-card featured">
-<div class="badge">پیشنهادی</div>
-
-<h3>پلن فروشگاهی</h3>
-<div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
-
-<ul class="price-features">
-<li><i class="fas fa-check"></i> فروشگاه کامل</li>
-<li><i class="fas fa-check"></i> مدیریت محصولات</li>
-<li><i class="fas fa-check"></i> اتصال درگاه پرداخت</li>
-<li><i class="fas fa-check"></i> سئو و سرعت بالا</li>
-<li><i class="fas fa-check"></i> پشتیبانی ۳ ماهه</li>
-</ul>
-
-<a href="tel:09011516162" class="order-btn">سفارش پروژه</a>
-</div>
-
-<div class="price-card">
-<h3>پلن اختصاصی</h3>
-<div class="price-value">تماس بگیرید</div>
-
-<ul class="price-features">
-<li><i class="fas fa-check"></i> طراحی کاملاً سفارشی</li>
-<li><i class="fas fa-check"></i> امکانات خاص</li>
-<li><i class="fas fa-check"></i> توسعه اختصاصی</li>
-<li><i class="fas fa-check"></i> پشتیبانی ویژه</li>
-</ul>
-
-<a href="tel:09011516162" class="order-btn">دریافت مشاوره</a>
-</div>
-
-</div>
+    <h2 style="text-align:center; font-size:2.5rem">پلن‌های تعرفه</h2>
+    <div class="pricing-grid">
+        <div class="price-card reveal">
+            <h3>پلن شرکتی</h3>
+            <div class="price-value">۴,۹۰۰,۰۰۰ تومان</div>
+            <ul class="price-features">
+                <li>طراحی ریسپانسیو</li>
+                <li>مدیریت آسان</li>
+                <li>پشتیبانی ۱ ماهه</li>
+            </ul>
+            <a href="tel:09011516162" class="cta-btn" style="display:block">انتخاب</a>
+        </div>
+        <div class="price-card featured reveal">
+            <div style="background:#2563eb; padding:2px 15px; border-radius:20px; font-size:0.8rem; display:inline-block">پیشنهادی</div>
+            <h3>پلن فروشگاهی</h3>
+            <div class="price-value">۸,۹۰۰,۰۰۰ تومان</div>
+            <ul class="price-features">
+                <li>فروشگاه کامل</li>
+                <li>درگاه پرداخت آنلاین</li>
+                <li>پشتیبانی ۳ ماهه</li>
+            </ul>
+            <a href="tel:09011516162" class="cta-btn" style="display:block; background:#60a5fa; color:#000">انتخاب</a>
+        </div>
+        <div class="price-card reveal">
+            <h3>پلن اختصاصی</h3>
+            <div class="price-value">تماس بگیرید</div>
+            <ul class="price-features">
+                <li>امکانات نامحدود</li>
+                <li>طراحی سفارشی</li>
+                <li>پشتیبانی مادام‌العمر</li>
+            </ul>
+            <a href="tel:09011516162" class="cta-btn" style="display:block">مشاوره</a>
+        </div>
+    </div>
 </section>
 
-<div class="contact-section">
+<section class="contact-section reveal">
+    <h2 style="text-align:center; margin-bottom:20px">ارسال پیام</h2>
+    <form action="https://formspree.io/f/xaqzodlv" method="POST">
+        <input type="text" name="name" placeholder="نام شما" required>
+        <input type="text" name="contact" placeholder="شماره تماس" required>
+        <textarea name="message" rows="4" placeholder="توضیحات پروژه" required></textarea>
+        <button type="submit" class="cta-btn" style="width:100%; border:none; cursor:pointer">ارسال درخواست</button>
+    </form>
+</section>
 
-<h2 style="text-align:center;margin-bottom:2rem">
-ارسال پیام مستقیم
-</h2>
-
-<form action="https://formspree.io/f/xaqzodlv" method="POST">
-
-<div style="margin-bottom:1rem">
-<input type="text" name="name" required placeholder="نام و نام خانوادگی">
-</div>
-
-<div style="margin-bottom:1rem">
-<input type="text" name="contact" required placeholder="ایمیل یا شماره تماس">
-</div>
-
-<div style="margin-bottom:1rem">
-<textarea name="message" rows="5" required placeholder="توضیحات پروژه"></textarea>
-</div>
-
-<button type="submit" class="order-btn" style="width:100%">
-ارسال درخواست مشاوره
-</button>
-
-</form>
-
-</div>
-
-<footer>
-<p>تمامی حقوق محفوظ است © ۲۰۲۶ | طراحیار</p>
+<footer style="text-align:center; padding:40px; opacity:0.5; font-size:0.9rem">
+    تمامی حقوق محفوظ است © ۲۰۲۶ | طراحیار
 </footer>
 
 <script>
+// انیمیشن‌های اسکرول
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+}, { threshold: 0.1 });
 
-function reveal(){
-
-let cards=document.querySelectorAll(".service-card");
-let prices=document.querySelectorAll(".price-card");
-let contact=document.querySelector(".contact-section");
-
-let trigger=window.innerHeight-120;
-
-cards.forEach((card,i)=>{
-if(card.getBoundingClientRect().top<trigger){
-setTimeout(()=>{
-card.classList.add("show");
-},i*150);
-}
-});
-
-prices.forEach((card,i)=>{
-if(card.getBoundingClientRect().top<trigger){
-setTimeout(()=>{
-card.classList.add("show");
-},i*200);
-}
-});
-
-if(contact.getBoundingClientRect().top<trigger){
-contact.classList.add("show");
-}
-
-}
-
-window.addEventListener("scroll",reveal);
-
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 </script>
 
 </body>
