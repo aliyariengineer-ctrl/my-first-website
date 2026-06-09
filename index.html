@@ -3,910 +3,1139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>طراحیار | طراحی سایت مدرن، فروشگاهی و سئو</title>
-  <meta name="description" content="طراحی سایت اختصاصی، فروشگاه اینترنتی و سئو با طراحیار. طراحی مدرن، حرفه‌ای و بهینه برای رشد کسب‌وکار شما." />
-  <meta name="theme-color" content="#0b1020" />
+  <title>طراحیار | طراحی سایت حرفه‌ای و اختصاصی</title>
+  <meta name="description" content="طراحیار؛ طراحی سایت شرکتی، فروشگاهی و اختصاصی با ظاهر مدرن، سرعت بالا و پشتیبانی حرفه‌ای." />
+  <meta name="theme-color" content="#0b1120" />
+
   <style>
     :root{
       --bg:#07111f;
-      --bg2:#0b1730;
-      --card:rgba(255,255,255,.08);
-      --stroke:rgba(255,255,255,.12);
-      --text:#ecf3ff;
-      --muted:#b7c6e0;
-      --primary:#7c9cff;
-      --primary2:#47d7ff;
-      --success:#34d399;
-      --shadow:0 10px 40px rgba(0,0,0,.28);
+      --bg-2:#0b1730;
+      --panel:rgba(255,255,255,.07);
+      --panel-2:rgba(255,255,255,.05);
+      --border:rgba(255,255,255,.12);
+      --text:#ecf2ff;
+      --muted:#b8c4e3;
+      --primary:#6ea8ff;
+      --primary-2:#4f7dff;
+      --accent:#89f7fe;
+      --success:#7ef0c2;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
       --radius:22px;
-      --radius-sm:16px;
-      --container:1180px;
+      --radius-sm:14px;
+      --max:1180px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
+    *{
       margin:0;
-      font-family:Tahoma, Arial, sans-serif;
-      color:var(--text);
+      padding:0;
+      box-sizing:border-box;
+      font-family:tahoma, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
       background:
-        radial-gradient(900px 500px at 10% -5%, rgba(71,215,255,.15), transparent 60%),
-        radial-gradient(700px 400px at 90% 0%, rgba(124,156,255,.16), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      min-height:100vh;
+        radial-gradient(circle at top right, rgba(79,125,255,.18), transparent 25%),
+        radial-gradient(circle at top left, rgba(137,247,254,.10), transparent 20%),
+        linear-gradient(180deg, #07111f 0%, #09152a 35%, #07111f 100%);
+      color:var(--text);
+      line-height:1.9;
       overflow-x:hidden;
     }
 
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .container{width:min(var(--container), calc(100% - 32px)); margin-inline:auto}
-    .glass{
-      background:var(--card);
-      border:1px solid var(--stroke);
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .section{
+    .container{
+      width:min(92%, var(--max));
+      margin:auto;
+    }
+
+    .glow{
+      position:absolute;
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      filter:blur(80px);
+      opacity:.18;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .glow.one{
+      top:-80px;
+      right:-60px;
+      background:#4f7dff;
+    }
+
+    .glow.two{
+      bottom:-80px;
+      left:-40px;
+      background:#00d2ff;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(7,17,31,.55);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:74px;
+      gap:20px;
+    }
+
+    .brand{
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:.3px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:none;
+      cursor:pointer;
+      padding:13px 22px;
+      border-radius:14px;
+      font-size:15px;
+      transition:.25s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      color:#fff;
+      box-shadow:0 12px 30px rgba(79,125,255,.28);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 40px rgba(79,125,255,.34);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      color:#fff;
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.1);
+    }
+
+    .hero{
+      position:relative;
+      padding:90px 0 50px;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .9fr;
+      gap:32px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:#d7e4ff;
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:13px;
+      margin-bottom:18px;
+      backdrop-filter:blur(12px);
+    }
+
+    .hero h1{
+      font-size:clamp(32px, 5vw, 58px);
+      line-height:1.25;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:16px;
+      max-width:720px;
+      margin-bottom:28px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .stat{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      backdrop-filter:blur(12px);
+      box-shadow:var(--shadow);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .hero-card{
+      position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      min-height:430px;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:180px;
+      height:180px;
+      background:radial-gradient(circle, rgba(110,168,255,.35), transparent 65%);
+      filter:blur(10px);
+    }
+
+    .mini-card{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:18px;
+      margin-bottom:16px;
+    }
+
+    .mini-card h3{
+      margin-bottom:8px;
+      font-size:17px;
+    }
+
+    .mini-card p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .service-list{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .service-item{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:14px;
+      font-size:14px;
+      color:#dce7ff;
+    }
+
+    section{
       padding:84px 0;
       position:relative;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:20px;
+      margin-bottom:28px;
+      flex-wrap:wrap;
+    }
+
+    .section-head h2{
+      font-size:34px;
+      line-height:1.3;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:640px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:var(--panel-2);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      backdrop-filter:blur(12px);
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(110,168,255,.35);
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:16px;
+      margin-bottom:16px;
+      background:linear-gradient(135deg, rgba(110,168,255,.22), rgba(137,247,254,.12));
+      border:1px solid rgba(255,255,255,.1);
+      font-size:22px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-size:20px;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .feature-panel{
+      background:var(--panel-2);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:30px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+    }
+
+    .check-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .check-item{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:#dce7ff;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      padding:14px 16px;
+      border-radius:16px;
+    }
+
+    .check-badge{
+      min-width:26px;
+      height:26px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(126,240,194,.16);
+      color:var(--success);
+      font-size:13px;
+      margin-top:2px;
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      margin-top:28px;
+    }
+
+    .price-card{
+      position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:26px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      transition:.25s ease;
+    }
+
+    .price-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(110,168,255,.36);
+    }
+
+    .price-card.popular{
+      border-color:rgba(110,168,255,.38);
+      box-shadow:0 20px 60px rgba(79,125,255,.16);
+    }
+
+    .popular-tag{
+      position:absolute;
+      top:16px;
+      left:16px;
+      background:linear-gradient(135deg, #6ea8ff, #4f7dff);
+      color:#fff;
+      border-radius:999px;
+      padding:6px 12px;
+      font-size:12px;
+    }
+
+    .price-card h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .price-text{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:14px;
+    }
+
+    .price{
+      font-size:36px;
+      font-weight:700;
+      margin:14px 0 18px;
+      color:#fff;
+    }
+
+    .price span{
+      font-size:15px;
+      color:var(--muted);
+      font-weight:400;
+    }
+
+    .price-list{
+      list-style:none;
+      display:grid;
+      gap:12px;
+      margin-bottom:22px;
+    }
+
+    .price-list li{
+      color:#dce7ff;
+      padding-right:18px;
+      position:relative;
+      font-size:14px;
+    }
+
+    .price-list li::before{
+      content:"•";
+      position:absolute;
+      right:0;
+      color:var(--primary);
+    }
+
+    .portfolio{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .portfolio-item{
+      min-height:220px;
+      border-radius:24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.06)),
+        radial-gradient(circle at top right, rgba(110,168,255,.24), transparent 30%);
+      border:1px solid rgba(255,255,255,.1);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .portfolio-item h3{
+      margin-bottom:8px;
+    }
+
+    .portfolio-item p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .faq{
+      display:grid;
+      gap:16px;
+    }
+
+    .faq-item{
+      background:var(--panel-2);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .faq-item h3{
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    .faq-item p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .contact-box{
+      display:grid;
+      grid-template-columns:1fr .95fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .contact-card,
+    .contact-form{
+      background:var(--panel-2);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+    }
+
+    .contact-points{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .contact-point{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      padding:14px 16px;
+      border-radius:16px;
+      color:#dbe6ff;
+      font-size:14px;
+    }
+
+    form{
+      display:grid;
+      gap:14px;
+    }
+
+    input, textarea{
+      width:100%;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      color:#fff;
+      border-radius:14px;
+      padding:14px 15px;
+      outline:none;
+      font-size:14px;
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+      color:#9db0d9;
+    }
+
+    textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .footer{
+      padding:28px 0 50px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
     }
 
     .reveal{
       opacity:0;
       transform:translateY(28px);
-      transition:all .8s ease;
+      transition:all .7s ease;
     }
-    .reveal.show{
+
+    .reveal.active{
       opacity:1;
       transform:translateY(0);
     }
 
-    /* navbar */
-    .nav-wrap{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      background:rgba(7,17,31,.45);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:14px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:700;
-      font-size:1.15rem;
-    }
-    .brand-badge{
-      width:42px;height:42px;border-radius:14px;
-      display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      color:#06111f;
-      font-weight:900;
-      box-shadow:0 8px 24px rgba(71,215,255,.22);
-    }
-    .nav-links{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:.98rem;
-    }
-    .nav-links a:hover{color:#fff}
-    .nav-cta{
-      padding:11px 18px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      color:#06111f;
-      font-weight:700;
-      border:none;
-      cursor:pointer;
-      box-shadow:0 10px 30px rgba(71,215,255,.22);
-    }
-
-    /* hero */
-    .hero{
-      padding:72px 0 40px;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.2fr .95fr;
-      gap:28px;
-      align-items:center;
-    }
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 14px;
-      border-radius:999px;
-      color:#d9e7ff;
-      font-size:.9rem;
-      border:1px solid rgba(255,255,255,.1);
-      background:rgba(255,255,255,.06);
-    }
-    .hero h1{
-      margin:18px 0 14px;
-      font-size:clamp(2rem, 4vw, 4rem);
-      line-height:1.2;
-      letter-spacing:-.5px;
-    }
-    .hero p{
-      margin:0 0 22px;
-      color:var(--muted);
-      font-size:1.05rem;
-      line-height:2;
-      max-width:720px;
-    }
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-    .btn{
-      padding:14px 20px;
-      border-radius:16px;
-      font-weight:700;
-      border:1px solid transparent;
-      cursor:pointer;
-      transition:.25s ease;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-    }
-    .btn-primary{
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      color:#06111f;
-      box-shadow:0 12px 30px rgba(71,215,255,.24);
-    }
-    .btn-primary:hover{transform:translateY(-2px)}
-    .btn-secondary{
-      color:#fff;
-      border-color:rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
-    }
-    .btn-secondary:hover{background:rgba(255,255,255,.08)}
-
-    .hero-card{
-      border-radius:28px;
-      padding:22px;
-      position:relative;
-      overflow:hidden;
-      min-height:420px;
-    }
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      inset:-20%;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(71,215,255,.18), transparent 28%),
-        radial-gradient(circle at 80% 30%, rgba(124,156,255,.22), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(52,211,153,.12), transparent 26%);
-      animation:floatGlow 9s linear infinite alternate;
-      pointer-events:none;
-    }
-    @keyframes floatGlow{
-      0%{transform:translateY(0) translateX(0) scale(1)}
-      100%{transform:translateY(-10px) translateX(8px) scale(1.05)}
-    }
-    .mock{
-      position:relative;
-      z-index:1;
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
-      border:1px solid rgba(255,255,255,.1);
-      padding:18px;
-      height:100%;
-      min-height:370px;
-      display:grid;
-      gap:14px;
-    }
-    .mock-top{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:#fff3;
-    }
-    .mock-screen{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      flex:1;
-    }
-    .panel{
-      border-radius:18px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      padding:14px;
-      position:relative;
-      overflow:hidden;
-    }
-    .panel::after{
-      content:"";
-      position:absolute;
-      width:180px;height:180px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(71,215,255,.20), transparent 60%);
-      top:var(--y,20px);
-      left:var(--x,20px);
-      pointer-events:none;
-      transition:.25s ease;
-    }
-
-    /* stats */
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      margin-top:28px;
-    }
-    .stat{
-      padding:18px;
-      border-radius:18px;
-      text-align:center;
-    }
-    .stat strong{
-      display:block;
-      font-size:1.6rem;
-      margin-bottom:6px;
-    }
-    .stat span{
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    /* section title */
-    .section-title{
-      text-align:center;
-      margin-bottom:26px;
-    }
-    .section-title h2{
-      margin:0 0 10px;
-      font-size:clamp(1.6rem,3vw,2.6rem);
-    }
-    .section-title p{
-      margin:0 auto;
-      color:var(--muted);
-      max-width:760px;
-      line-height:2;
-    }
-
-    /* services */
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      margin-top:30px;
-    }
-    .card{
-      padding:24px;
-      border-radius:22px;
-      position:relative;
-      overflow:hidden;
-      transition:transform .25s ease, border-color .25s ease;
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(124,156,255,.35);
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:auto -30px -30px auto;
-      width:180px;height:180px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(124,156,255,.20), transparent 60%);
-      filter:blur(10px);
-      pointer-events:none;
-    }
-    .icon{
-      width:56px;height:56px;
-      border-radius:18px;
-      display:grid;place-items:center;
-      font-size:1.4rem;
-      margin-bottom:16px;
-      background:linear-gradient(135deg, rgba(124,156,255,.22), rgba(71,215,255,.18));
-      border:1px solid rgba(255,255,255,.12);
-    }
-    .card h3{
-      margin:0 0 10px;
-      font-size:1.15rem;
-    }
-    .card p{
-      margin:0;
-      color:var(--muted);
-      line-height:2;
-      font-size:.97rem;
-    }
-
-    /* pricing */
-    .pricing{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      margin-top:28px;
-    }
-    .price-card{
-      padding:26px;
-      border-radius:24px;
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      min-height:430px;
-    }
-    .price-card.featured{
-      border-color:rgba(71,215,255,.28);
-      transform:translateY(-6px);
-      box-shadow:0 16px 40px rgba(71,215,255,.12);
-    }
-    .badge{
-      position:absolute;
-      top:16px;
-      left:16px;
-      font-size:.82rem;
-      padding:7px 12px;
-      border-radius:999px;
-      color:#07111f;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      font-weight:700;
-    }
-    .price-card h3{
-      margin:0 0 8px;
-      font-size:1.25rem;
-    }
-    .price-sub{
-      color:var(--muted);
-      line-height:1.9;
-      min-height:62px;
-    }
-    .amount{
-      font-size:2rem;
-      font-weight:800;
-      margin:18px 0 8px;
-      color:#fff;
-    }
-    .price-card ul{
-      list-style:none;
-      margin:14px 0 24px;
-      padding:0;
-      display:grid;
-      gap:10px;
-      color:#d9e7ff;
-      flex:1;
-    }
-    .price-card li{
-      padding-right:18px;
-      position:relative;
-      line-height:1.8;
-    }
-    .price-card li::before{
-      content:"✓";
-      position:absolute;
-      right:0;
-      color:var(--success);
-      font-weight:700;
-    }
-
-    /* why us */
-    .features{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      margin-top:26px;
-    }
-    .feature{
-      padding:20px;
-      border-radius:20px;
-    }
-    .feature h4{
-      margin:12px 0 8px;
-      font-size:1.05rem;
-    }
-    .feature p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.9;
-      font-size:.95rem;
-    }
-
-    /* contact */
-    .contact-wrap{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-      margin-top:30px;
-    }
-    .contact-card{
-      padding:24px;
-      border-radius:24px;
-    }
-    .contact-list{
-      display:grid;
-      gap:14px;
-      margin-top:14px;
-      color:#dce8ff;
-    }
-    .contact-list div{
-      padding:14px 16px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    form{
-      display:grid;
-      gap:12px;
-    }
-    input, textarea{
-      width:100%;
-      border:none;
-      outline:none;
-      border-radius:16px;
-      padding:14px 16px;
-      background:rgba(255,255,255,.06);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.10);
-      font-family:inherit;
-      font-size:.98rem;
-    }
-    textarea{min-height:140px; resize:vertical}
-    input::placeholder, textarea::placeholder{color:#b8c8e1}
-
-    .footer{
-      padding:26px 0 40px;
-      color:var(--muted);
-      text-align:center;
-      border-top:1px solid rgba(255,255,255,.08);
-      margin-top:24px;
-    }
-
-    /* payment modal */
-    .payment-overlay{
+    .modal{
       position:fixed;
       inset:0;
-      background:rgba(2,6,23,.75);
+      background:rgba(2,6,14,.78);
+      backdrop-filter:blur(8px);
       display:none;
-      justify-content:center;
       align-items:center;
-      padding:18px;
-      z-index:99999;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      justify-content:center;
+      padding:20px;
+      z-index:999;
     }
-    .payment-box{
-      width:min(520px, 100%);
-      border-radius:24px;
-      padding:24px;
+
+    .modal-box{
+      width:min(100%, 520px);
+      background:linear-gradient(180deg, rgba(12,23,43,.96), rgba(8,16,30,.98));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:0 30px 80px rgba(0,0,0,.45);
       position:relative;
-      background:rgba(10,18,36,.82);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 20px 60px rgba(0,0,0,.35);
-      overflow:hidden;
     }
-    .payment-box::before{
-      content:"";
-      position:absolute;
-      inset:-20% auto auto -10%;
-      width:260px;height:260px;border-radius:50%;
-      background:radial-gradient(circle, rgba(71,215,255,.14), transparent 60%);
-      pointer-events:none;
+
+    .modal-box h3{
+      font-size:24px;
+      margin-bottom:8px;
     }
-    .payment-close{
-      position:absolute;
-      top:14px;
-      left:18px;
-      width:38px;height:38px;
-      border-radius:12px;
-      display:grid;place-items:center;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      color:#fff;
-      cursor:pointer;
-      font-size:1.2rem;
-    }
-    .payment-head{
-      margin-bottom:18px;
-    }
-    .payment-head h3{
-      margin:0 0 10px;
-      font-size:1.45rem;
-    }
-    .payment-head p{
-      margin:0;
+
+    .modal-box p{
       color:var(--muted);
-      line-height:1.9;
-      font-size:.95rem;
+      font-size:14px;
     }
-    .plan-chip{
-      display:inline-block;
-      margin-top:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:.92rem;
-      background:rgba(124,156,255,.12);
-      border:1px solid rgba(124,156,255,.22);
-      color:#e5eeff;
-    }
-    .pay-price{
-      font-size:1.45rem;
-      font-weight:800;
-      color:#7fd9ff;
-      margin-top:12px;
-    }
-    .card-panel{
-      margin:18px 0 16px;
+
+    .payment-card{
+      margin:18px 0;
       padding:18px;
-      border-radius:20px;
+      border-radius:18px;
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.08);
     }
-    .card-panel .label{
-      color:var(--muted);
-      font-size:.9rem;
-      margin-bottom:8px;
-    }
+
     .card-number{
-      font-size:1.4rem;
-      letter-spacing:1px;
-      font-weight:800;
+      font-size:24px;
       color:#fff;
-      margin-bottom:12px;
-      direction:ltr;
-      text-align:center;
+      letter-spacing:1px;
+      margin-top:8px;
+      word-break:break-word;
     }
-    .copy-btn{
-      width:100%;
-      padding:12px 16px;
-      border:none;
-      border-radius:14px;
-      cursor:pointer;
-      font-weight:700;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      color:#07111f;
-    }
-    .payment-note{
-      margin:12px 0 16px;
-      color:var(--muted);
-      line-height:1.9;
-      font-size:.92rem;
-    }
-    .full{width:100%}
-    .small-note{
+
+    .modal-actions{
+      display:flex;
+      gap:12px;
       margin-top:10px;
-      color:#95a8c8;
-      font-size:.86rem;
-      line-height:1.8;
+      flex-wrap:wrap;
     }
 
-    /* back to top */
-    .to-top{
-      position:fixed;
-      left:18px;
-      bottom:18px;
-      width:52px;height:52px;
-      border:none;
-      border-radius:18px;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      color:#06111f;
-      font-size:1.2rem;
-      font-weight:900;
+    .close-x{
+      position:absolute;
+      top:16px;
+      left:16px;
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.05);
+      color:#fff;
       cursor:pointer;
-      display:none;
-      z-index:999;
-      box-shadow:0 10px 30px rgba(71,215,255,.28);
     }
 
-    @media (max-width: 1024px){
+    @media (max-width: 980px){
       .hero-grid,
-      .contact-wrap{
+      .features,
+      .contact-box,
+      .pricing,
+      .portfolio,
+      .grid-3{
         grid-template-columns:1fr;
       }
-      .cards,
-      .pricing{
-        grid-template-columns:1fr 1fr;
+
+      .hero-stats{
+        grid-template-columns:1fr;
       }
-      .features{
-        grid-template-columns:1fr 1fr;
+
+      .service-list{
+        grid-template-columns:1fr;
       }
-      .stats{
-        grid-template-columns:1fr 1fr;
+
+      .section-head{
+        align-items:flex-start;
       }
     }
 
-    @media (max-width: 640px){
+    @media (max-width: 720px){
       .nav{
-        flex-wrap:wrap;
-        justify-content:center;
-      }
-      .nav-links{
-        justify-content:center;
-      }
-      .hero{
-        padding-top:42px;
-      }
-      .cards,
-      .pricing,
-      .features,
-      .stats{
-        grid-template-columns:1fr;
-      }
-      .hero-actions{
         flex-direction:column;
+        justify-content:center;
+        padding:14px 0;
       }
-      .btn, .nav-cta{width:100%}
-      .mock-screen{grid-template-columns:1fr}
-      .card-number{font-size:1.15rem}
+
+      .hero{
+        padding-top:56px;
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .section-head h2{
+        font-size:27px;
+      }
+
+      .price{
+        font-size:30px;
+      }
+
+      .card-number{
+        font-size:20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="nav-wrap">
-    <nav class="nav container">
-      <div class="brand">
-        <div class="brand-badge">ط</div>
-        <span>طراحیار</span>
-      </div>
-
-      <div class="nav-links">
-        <a href="#home">خانه</a>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">طراحیار</div>
+      <nav class="nav-links">
         <a href="#services">خدمات</a>
-        <a href="#pricing">پلن‌ها</a>
-        <a href="#whyus">چرا ما</a>
-        <a href="#contact">تماس با ما</a>
-      </div>
-
-      <a class="nav-cta" href="#pricing">شروع سفارش</a>
-    </nav>
-  </div>
-
-  <header id="home" class="hero">
-    <div class="container hero-grid">
-      <div class="reveal show">
-        <span class="eyebrow glass">طراحی سایت حرفه‌ای برای رشد واقعی کسب‌وکار</span>
-        <h1>سایت مدرن، سریع و حرفه‌ای برای برند شما</h1>
-        <p>
-          در طراحیار، طراحی سایت اختصاصی، فروشگاه اینترنتی و سئو را با استانداردهای
-          مدرن انجام می‌دهیم؛ از ظاهر چشم‌نواز و تجربه کاربری روان گرفته تا بهینه‌سازی
-          برای گوگل و افزایش اعتماد مشتری.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#pricing">مشاهده پلن‌ها</a>
-          <a class="btn btn-secondary" href="#contact">مشاوره و تماس</a>
-        </div>
-
-        <div class="stats">
-          <div class="stat glass">
-            <strong>مدرن</strong>
-            <span>طراحی شیشه‌ای و حرفه‌ای</span>
-          </div>
-          <div class="stat glass">
-            <strong>سریع</strong>
-            <span>بهینه‌سازی برای سرعت</span>
-          </div>
-          <div class="stat glass">
-            <strong>واکنش‌گرا</strong>
-            <span>سازگار با موبایل و دسکتاپ</span>
-          </div>
-          <div class="stat glass">
-            <strong>سئو</strong>
-            <span>قابل رشد در نتایج گوگل</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-card glass reveal">
-        <div class="mock">
-          <div class="mock-top">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-          <div class="mock-screen">
-            <div class="panel" onmousemove="moveGlow(event,this)">
-              <h3 style="margin-top:0">صفحه اصلی حرفه‌ای</h3>
-              <p style="color:var(--muted);line-height:2">
-                طراحی مدرن با ساختار مناسب برای معرفی خدمات، نمونه‌کار و دریافت سفارش.
-              </p>
-            </div>
-            <div class="panel" onmousemove="moveGlow(event,this)">
-              <h3 style="margin-top:0">فروشگاه اینترنتی</h3>
-              <p style="color:var(--muted);line-height:2">
-                طراحی اختصاصی فروشگاه، صفحات محصول، دسته‌بندی و تجربه خرید بهتر.
-              </p>
-            </div>
-            <div class="panel" onmousemove="moveGlow(event,this)">
-              <h3 style="margin-top:0">سئو و بهینه‌سازی</h3>
-              <p style="color:var(--muted);line-height:2">
-                ساختار درست، سرعت مناسب، محتوای هدفمند و پایه‌گذاری برای رشد ارگانیک.
-              </p>
-            </div>
-            <div class="panel" onmousemove="moveGlow(event,this)">
-              <h3 style="margin-top:0">ارتباط آسان</h3>
-              <p style="color:var(--muted);line-height:2">
-                فرم تماس، چت آنلاین و سیستم ثبت سفارش برای تبدیل بهتر بازدیدکننده به مشتری.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <a href="#features">مزایا</a>
+        <a href="#pricing">تعرفه‌ها</a>
+        <a href="#portfolio">نمونه‌کار</a>
+        <a href="#faq">سوالات متداول</a>
+        <a href="#contact">تماس</a>
+      </nav>
+      <a href="#pricing" class="btn btn-primary">شروع همکاری</a>
     </div>
   </header>
 
-  <section id="services" class="section">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>خدمات طراحیار</h2>
-        <p>
-          ما خدمات طراحی و توسعه سایت را به‌صورت حرفه‌ای و متناسب با نیاز کسب‌وکار شما ارائه می‌کنیم.
-        </p>
-      </div>
+  <main>
+    <section class="hero">
+      <div class="glow one"></div>
+      <div class="glow two"></div>
 
-      <div class="cards">
-        <div class="card glass reveal">
-          <div class="icon">🎨</div>
-          <h3>طراحی اختصاصی سایت</h3>
+      <div class="container hero-grid">
+        <div class="reveal active">
+          <div class="badge">طراحی مدرن، سریع و حرفه‌ای برای رشد کسب‌وکار شما</div>
+          <h1>وب‌سایتی بساز که هم زیبا باشد، هم بفروشد، هم اعتماد ایجاد کند.</h1>
           <p>
-            طراحی رابط کاربری حرفه‌ای، هویت بصری منسجم و تجربه کاربری مدرن برای معرفی برند و خدمات شما.
+            در طراحیار سایت‌های شرکتی، فروشگاهی و اختصاصی را با طراحی مدرن، ساختار حرفه‌ای،
+            تجربه کاربری مناسب و آماده برای توسعه کسب‌وکار شما پیاده‌سازی می‌کنیم.
           </p>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">مشاهده پلن‌ها</a>
+            <a href="#contact" class="btn btn-secondary">مشاوره و تماس</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>طراحی مدرن</strong>
+              <span>ظاهر حرفه‌ای با حس برندینگ قوی</span>
+            </div>
+            <div class="stat">
+              <strong>ریسپانسیو کامل</strong>
+              <span>نمایش عالی در موبایل، تبلت و دسکتاپ</span>
+            </div>
+            <div class="stat">
+              <strong>پشتیبانی ارتباطی</strong>
+              <span>فرم تماس و چت آنلاین فعال</span>
+            </div>
+          </div>
         </div>
 
-        <div class="card glass reveal">
-          <div class="icon">🛒</div>
-          <h3>فروشگاه اینترنتی</h3>
+        <div class="hero-card reveal">
+          <div class="mini-card">
+            <h3>سایت‌هایی برای نتیجه، نه فقط ظاهر</h3>
+            <p>
+              تمرکز ما فقط روی زیبایی نیست؛ ساختار درست، مسیر تبدیل کاربر و ارائه حرفه‌ای خدمات هم مهم است.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <h3>مناسب برند شخصی، شرکت و فروشگاه</h3>
+            <p>
+              از سایت معرفی خدمات تا فروشگاه اینترنتی و پروژه‌های اختصاصی، ساختار پروژه متناسب با نیاز شما طراحی می‌شود.
+            </p>
+          </div>
+
+          <div class="service-list">
+            <div class="service-item">طراحی UI مدرن</div>
+            <div class="service-item">فرم ثبت سفارش</div>
+            <div class="service-item">چت آنلاین Crisp</div>
+            <div class="service-item">اتصال فرم با Formspree</div>
+            <div class="service-item">ساختار آماده سئو</div>
+            <div class="service-item">قابلیت توسعه در آینده</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>خدمات اصلی طراحیار</h2>
+          </div>
           <p>
-            ساخت فروشگاه آنلاین حرفه‌ای با ساختار مناسب محصولات، صفحات فروش و مسیر سفارش‌دهی شفاف.
+            هر پروژه با توجه به نوع کسب‌وکار شما طراحی می‌شود تا سایت فقط یک ویترین ساده نباشد،
+            بلکه به ابزار اعتمادسازی و جذب مشتری تبدیل شود.
           </p>
         </div>
 
-        <div class="card glass reveal">
-          <div class="icon">🚀</div>
-          <h3>سئو و بهینه‌سازی</h3>
+        <div class="grid-3">
+          <div class="card reveal">
+            <div class="icon">🏢</div>
+            <h3>طراحی سایت شرکتی</h3>
+            <p>
+              مناسب برای شرکت‌ها، مجموعه‌های خدماتی و برندهای شخصی که نیاز به معرفی حرفه‌ای، صفحه خدمات و ارتباط آسان با مشتری دارند.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">🛒</div>
+            <h3>فروشگاه اینترنتی</h3>
+            <p>
+              مناسب برای فروش محصول با ساختار حرفه‌ای، صفحات محصول، تجربه خرید بهتر و امکان توسعه فروش آنلاین.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">⚙️</div>
+            <h3>طراحی اختصاصی</h3>
+            <p>
+              برای پروژه‌هایی که نیاز به ظاهر منحصربه‌فرد، امکانات ویژه، ساختار اختصاصی یا صفحات سفارشی دارند.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container features">
+        <div class="feature-panel reveal">
+          <div class="section-head" style="margin-bottom:10px">
+            <div>
+              <h2>چرا این ساختار برای شما مناسب است؟</h2>
+            </div>
+          </div>
+          <p style="color:var(--muted)">
+            این نسخه با رویکرد مدرن طراحی شده؛ ظاهر حرفه‌ای، سکشن‌بندی واضح، فرم‌های کاربردی و امکان ثبت سفارش مستقیم، باعث می‌شود کاربر راحت‌تر تصمیم بگیرد.
+          </p>
+
+          <div class="check-list">
+            <div class="check-item">
+              <div class="check-badge">✓</div>
+              <div>طراحی شیشه‌ای و مدرن با جلوه‌های بصری حرفه‌ای</div>
+            </div>
+            <div class="check-item">
+              <div class="check-badge">✓</div>
+              <div>انیمیشن ورود سکشن‌ها برای تجربه کاربری بهتر</div>
+            </div>
+            <div class="check-item">
+              <div class="check-badge">✓</div>
+              <div>ساختار مناسب برای معرفی خدمات، جلب اعتماد و افزایش تماس</div>
+            </div>
+            <div class="check-item">
+              <div class="check-badge">✓</div>
+              <div>امکان ثبت سفارش بدون نیاز به درگاه‌های واسط مالیاتی</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-panel reveal">
+          <h2 style="margin-bottom:14px">پرداخت اختصاصی و ساده</h2>
+          <p style="color:var(--muted)">
+            کاربر پس از انتخاب پلن، اطلاعات پرداخت را مشاهده می‌کند، مبلغ را کارت‌به‌کارت واریز می‌کند و سپس کد پیگیری خود را از طریق فرم برای شما ارسال می‌کند.
+          </p>
+
+          <div class="check-list">
+            <div class="check-item">
+              <div class="check-badge">1</div>
+              <div>انتخاب پلن موردنظر از بخش تعرفه‌ها</div>
+            </div>
+            <div class="check-item">
+              <div class="check-badge">2</div>
+              <div>مشاهده شماره کارت و مبلغ داخل مودال پرداخت</div>
+            </div>
+            <div class="check-item">
+              <div class="check-badge">3</div>
+              <div>ارسال نام، کد پیگیری و توضیحات از طریق فرم</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>تعرفه‌های طراحی سایت</h2>
+          </div>
           <p>
-            بهبود سرعت، ساختار فنی، سئوی داخلی و آماده‌سازی سایت برای دیده‌شدن بهتر در گوگل.
+            بسته به نیاز شما می‌توانید یکی از پلن‌ها را انتخاب کنید. برای پروژه‌های خاص و قابلیت‌های سفارشی، پلن اختصاصی بهترین گزینه است.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="pricing" class="section">
+        <div class="pricing">
+          <div class="price-card reveal">
+            <h3>سایت شرکتی</h3>
+            <div class="price-text">برای معرفی خدمات، نمونه‌کار و جذب مشتری</div>
+            <div class="price">۸ میلیون <span>تومان</span></div>
+            <ul class="price-list">
+              <li>طراحی مدرن و شکیل</li>
+              <li>ریسپانسیو کامل</li>
+              <li>فرم تماس و ارتباط</li>
+              <li>ساختار مناسب سئو</li>
+              <li>صفحات معرفی خدمات</li>
+            </ul>
+            <button class="btn btn-primary" onclick="openPayment('سایت شرکتی','۸ میلیون تومان','مناسب برای شرکت‌ها، خدمات و برند شخصی')">ثبت سفارش</button>
+          </div>
+
+          <div class="price-card popular reveal">
+            <div class="popular-tag">پیشنهادی</div>
+            <h3>فروشگاه اینترنتی</h3>
+            <div class="price-text">برای فروش آنلاین و توسعه کسب‌وکار</div>
+            <div class="price">۱۲ میلیون <span>تومان</span></div>
+            <ul class="price-list">
+              <li>طراحی حرفه‌ای فروشگاهی</li>
+              <li>صفحات محصول و دسته‌بندی</li>
+              <li>سبد خرید و ساختار فروش</li>
+              <li>نمایش عالی در موبایل</li>
+              <li>آماده توسعه و مدیریت بهتر</li>
+            </ul>
+            <button class="btn btn-primary" onclick="openPayment('فروشگاه اینترنتی','۱۲ میلیون تومان','مناسب برای فروش آنلاین محصولات و توسعه فروش')">ثبت سفارش</button>
+          </div>
+
+          <div class="price-card reveal">
+            <h3>طراحی اختصاصی</h3>
+            <div class="price-text">برای امکانات خاص و پروژه‌های سفارشی</div>
+            <div class="price">توافقی <span>بر اساس نیاز</span></div>
+            <ul class="price-list">
+              <li>طراحی کاملاً سفارشی</li>
+              <li>ساختار خاص برای پروژه شما</li>
+              <li>صفحات و قابلیت‌های ویژه</li>
+              <li>هماهنگ با برند و هدف کسب‌وکار</li>
+              <li>مشاوره برای توسعه فازهای بعدی</li>
+            </ul>
+            <button class="btn btn-primary" onclick="openPayment('طراحی اختصاصی','قیمت توافقی','برای پروژه‌های اختصاصی و قابلیت‌های سفارشی')">ثبت سفارش</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>نمونه ساختار پروژه‌ها</h2>
+          </div>
+          <p>
+            این بخش می‌تواند بعداً با نمونه‌کارهای واقعی شما تکمیل شود. فعلاً به‌صورت نمایشی برای حرفه‌ای‌تر شدن صفحه قرار داده شده است.
+          </p>
+        </div>
+
+        <div class="portfolio">
+          <div class="portfolio-item reveal">
+            <h3>وب‌سایت شرکتی خدماتی</h3>
+            <p>
+              طراحی با تمرکز بر معرفی خدمات، اعتمادسازی، فرم تماس و ساختار حرفه‌ای برای تبدیل بازدیدکننده به مشتری.
+            </p>
+          </div>
+          <div class="portfolio-item reveal">
+            <h3>فروشگاه اینترنتی مدرن</h3>
+            <p>
+              مناسب نمایش محصولات، دسته‌بندی، صفحه محصول و تجربه خرید بهتر با ظاهر کاربرپسند.
+            </p>
+          </div>
+          <div class="portfolio-item reveal">
+            <h3>پروژه سفارشی اختصاصی</h3>
+            <p>
+              مناسب برندها و افرادی که به‌دنبال ظاهر منحصربه‌فرد و قابلیت‌های ویژه هستند.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>سوالات متداول</h2>
+          </div>
+          <p>
+            چند سوال رایج که معمولاً قبل از شروع همکاری پرسیده می‌شود.
+          </p>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item reveal">
+            <h3>چطور سفارش ثبت می‌شود؟</h3>
+            <p>
+              از بخش تعرفه‌ها پلن موردنظر را انتخاب می‌کنید، مبلغ را واریز می‌کنید و سپس کد پیگیری پرداخت را از طریق فرم برای ما ارسال می‌کنید.
+            </p>
+          </div>
+
+          <div class="faq-item reveal">
+            <h3>آیا امکان طراحی اختصاصی وجود دارد؟</h3>
+            <p>
+              بله، اگر پروژه شما نیاز به امکانات خاص، ظاهر سفارشی یا ساختار متفاوت داشته باشد، پلن اختصاصی برای شما مناسب است.
+            </p>
+          </div>
+
+          <div class="faq-item reveal">
+            <h3>آیا سایت برای موبایل هم بهینه است؟</h3>
+            <p>
+              بله، ساختار این صفحه کاملاً ریسپانسیو طراحی شده و روی موبایل، تبلت و دسکتاپ به‌خوبی نمایش داده می‌شود.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-box">
+        <div class="contact-card reveal">
+          <h2>تماس و شروع همکاری</h2>
+          <p style="color:var(--muted); margin-top:10px;">
+            اگر برای انتخاب پلن مناسب تردید دارید، از طریق فرم تماس پیام بگذارید یا از چت آنلاین استفاده کنید.
+          </p>
+
+          <div class="contact-points">
+            <div class="contact-point">پاسخ‌گویی از طریق فرم تماس سایت</div>
+            <div class="contact-point">چت آنلاین با Crisp فعال است</div>
+            <div class="contact-point">ثبت سفارش مستقیم از طریق بخش تعرفه‌ها</div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal">
+          <h3 style="margin-bottom:12px;">ارسال پیام</h3>
+          <form action="https://formspree.io/f/xaqzodlv" method="POST">
+            <input type="text" name="name" placeholder="نام شما" required />
+            <input type="email" name="email" placeholder="ایمیل شما" required />
+            <input type="text" name="subject" placeholder="موضوع" />
+            <textarea name="message" placeholder="متن پیام شما" required></textarea>
+            <button type="submit" class="btn btn-primary">ارسال پیام</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
     <div class="container">
-      <div class="section-title reveal">
-        <h2>پلن‌های ثبت سفارش</h2>
-        <p>
-          بر اساس نیاز کسب‌وکار خود، پلن مناسب را انتخاب کنید. با کلیک روی هر پلن،
-          پرتال پرداخت اختصاصی همان پلن برای شما باز می‌شود.
-        </p>
-      </div>
-
-      <div class="pricing">
-        <div class="price-card glass reveal">
-          <h3>پلن شرکتی</h3>
-          <p class="price-sub">
-            مناسب برای معرفی خدمات، برند شخصی یا کسب‌وکارهایی که به یک سایت شیک و قابل‌اعتماد نیاز دارند.
-          </p>
-          <div class="amount">۸٬۰۰۰٬۰۰۰ تومان</div>
-          <ul>
-            <li>طراحی صفحه اصلی حرفه‌ای</li>
-            <li>فرم تماس و ارتباط با مشتری</li>
-            <li>نمایش خدمات و درباره ما</li>
-            <li>کاملاً ریسپانسیو</li>
-            <li>بهینه‌سازی اولیه سرعت</li>
-          </ul>
-          <button class="btn btn-secondary"
-            onclick="openPaymentPortal('شرکتی','۸٬۰۰۰٬۰۰۰ تومان','مناسب برای سایت‌های معرفی خدمات و برندهای شخصی')">
-            ثبت سفارش پلن شرکتی
-          </button>
-        </div>
-
-        <div class="price-card glass featured reveal">
-          <span class="badge">پیشنهاد ویژه</span>
-          <h3>پلن فروشگاهی</h3>
-          <p class="price-sub">
-            مناسب برای فروش آنلاین محصولات با طراحی حرفه‌ای و ظاهر قابل‌اعتماد برای افزایش نرخ تبدیل.
-          </p>
-          <div class="amount">۱۲٬۰۰۰٬۰۰۰ تومان</div>
-          <ul>
-            <li>طراحی ساختار فروشگاهی حرفه‌ای</li>
-            <li>صفحه محصولات و دسته‌بندی‌ها</li>
-            <li>صفحه اختصاصی هر محصول</li>
-            <li>بهینه‌سازی تجربه خرید</li>
-            <li>طراحی مدرن و واکنش‌گرا</li>
-          </ul>
-          <button class="btn btn-primary"
-            onclick="openPaymentPortal('فروشگاهی','۱۲٬۰۰۰٬۰۰۰ تومان','مناسب برای راه‌اندازی فروشگاه اینترنتی حرفه‌ای و توسعه فروش آنلاین')">
-            ثبت سفارش پلن فروشگاهی
-          </button>
-        </div>
-
-        <div class="price-card glass reveal">
-          <h3>پلن اختصاصی</h3>
-          <p class="price-sub">
-            برای پروژه‌های ویژه، امکانات سفارشی، ایده‌های خاص و کسب‌وکارهایی که نیاز به طراحی کاملاً اختصاصی دارند.
-          </p>
-          <div class="amount">توافقی</div>
-          <ul>
-            <li>طراحی و توسعه سفارشی</li>
-            <li>امکانات خاص بر اساس نیاز پروژه</li>
-            <li>مشاوره تخصصی قبل از اجرا</li>
-            <li>ساختار اختصاصی و برندمحور</li>
-            <li>قابل توسعه برای آینده</li>
-          </ul>
-          <button class="btn btn-secondary"
-            onclick="openPaymentPortal('اختصاصی','توافقی','برای پروژه‌های ویژه و طراحی کاملاً سفارشی')">
-            ثبت سفارش پلن اختصاصی
-          </button>
-        </div>
-      </div>
+      © تمامی حقوق برای طراحیار محفوظ است
     </div>
-  </section>
+  </footer>
 
-  <section id="whyus" class="section">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>چرا طراحیار؟</h2>
-        <p>
-          ما فقط یک سایت تحویل نمی‌دهیم؛ بلکه تلاش می‌کنیم ابزاری برای اعتمادسازی، جذب مشتری و رشد برند شما بسازیم.
-        </p>
+  <div class="modal" id="paymentModal">
+    <div class="modal-box">
+      <button class="close-x" onclick="closePayment()">✕</button>
+
+      <h3 id="planTitle">ثبت سفارش</h3>
+      <p id="planPrice">هزینه پلن</p>
+
+      <div class="payment-card">
+        <p>لطفاً مبلغ را به شماره کارت زیر واریز کنید:</p>
+        <div class="card-number">6219861950016732</div>
+        <p style="margin-top:10px" id="planDesc">توضیحات پلن</p>
       </div>
 
-      <div class="features">
-        <div class="feature glass reveal">
-          <div class="icon">⚡</div>
-          <h4>تحویل حرفه‌ای</h4>
-          <p>ساختار منظم، طراحی چشم‌نواز و رعایت جزئیات برای ارائه یک خروجی قابل‌اعتماد.</p>
+      <form action="https://formspree.io/f/xaqzodlv" method="POST">
+        <input type="hidden" name="plan" id="planInput" />
+        <input type="text" name="name" placeholder="نام شما" required />
+        <input type="text" name="phone" placeholder="شماره تماس" />
+        <input type="text" name="tracking" placeholder="کد پیگیری پرداخت" required />
+        <textarea name="description" placeholder="توضیحات یا نیازهای پروژه"></textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">ارسال اطلاعات پرداخت</button>
+          <button type="button" class="btn btn-secondary" onclick="closePayment()">بستن</button>
         </div>
-        <div class="feature glass reveal">
-          <div class="icon">📱</div>
-          <h4>کاملاً ریسپانسیو</h4>
-          <p>نمایش درست و استاندارد در موبایل، تبلت و دسکتاپ برای پوشش کامل کاربران.</p>
-        </div>
-        <div class="feature glass reveal">
-          <div class="icon">🔒</div>
-          <h4>مسیر سفارش شفاف</h4>
-          <p>کاربر دقیقاً می‌داند چه پلنی را انتخاب کرده و اطلاعات پرداختش برای همان پلن ثبت می‌شود.</p>
-        </div>
-        <div class="feature glass reveal">
-          <div class="icon">📈</div>
-          <h4>نگاه تجاری</h4>
-          <p>سایت فقط ظاهر زیبا ندارد؛ برای اعتمادسازی، ارتباط بهتر و تبدیل بازدیدکننده به مشتری طراحی می‌شود.</p>
-        </div>
-      </div>
+      </form>
     </div>
-  </section>
+  </div>
 
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>تماس با ما</h2>
-        <p>
-          برای مشاوره، ثبت درخواست یا شروع همکاری، از طریق فرم تماس یا شماره مستقیم با ما در ارتباط باشید.
-        </p>
-      </div>
+  <script>
+    function openPayment(planName, planPrice, planDesc){
+      document.getElementById('paymentModal').style.display='flex';
+      document.getElementById('planTitle').innerText='ثبت سفارش: ' + planName;
+      document.getElementById('planPrice').innerText='هزینه: ' + planPrice;
+      document.getElementById('planDesc').innerText=planDesc;
+      document.getElementById('planInput').value=planName + ' | ' + planPrice + ' | ' + planDesc;
+    }
 
-      <div class="contact-w        <div class="contact-card glass reveal">
-          <h3 style="margin-top:0">اطلاعات ارتباطی</h3>
-          <div class="contact-list">
-            <div>📞 شماره تماس: <strong>09011516162</strong></div>
-            <div>💬 پشتیبانی آنلاین: از طریق چت سایت</div>
-            <div>🕒 پاسخ‌گویی: در سریع‌ترین زمان ممکن</
+    function closePayment(){
+      document.getElementById('paymentModal').style.display='none';
+    }
+
+    window.addEventListener('click', function(e){
+      const modal=document.getElementById('paymentModal');
+      if(e.target===modal){
+        closePayment();
+      }
+    });
+
+    const reveals=document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      const trigger=window.innerHeight - 80;
+      reveals.forEach(item=>{
+        const top=item.getBoundingClientRect().top;
+        if(top < trigger){
+          item.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "5c421b2c-e6b3-4a70-8428-49c0b6b6041a";
+    (function(){
+      var d = document;
+      var s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
+
+</body>
+</html>
