@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -701,7 +702,7 @@
     <section id="services" class="reveal">
         <div class="container">
             <div class="section-header">
-                <h2>چه کارهایی انجام می‌دهم؟</h2>
+                <h2>چه کارهایی انجام می‌دهیم؟</h2>
                 <p>توسعه متمرکز بر سرعت بالا، امنیت ارتقایافته و سئوی بهینه‌شده</p>
             </div>
             <div class="grid-3">
@@ -882,4 +883,98 @@
             <div class="modal-price" id="modalPlanPrice">۰ تومان</div>
             
             <div class="card-number-box" onclick="copyCardNumber()">
-                <span style="font-size: 0.85rem; color: va
+                <span style="font-size: 0.85rem; color: var(--secondary); display: block; margin-bottom: 5px;">برای کپی کردن شماره کارت کلیک کنید</span>
+                <span class="card-number" id="cardNumber">6219861950016732</span>
+                <span class="copy-toast" id="copyStatus">جهت کپی کلیک کنید</span>
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn btn-secondary" onclick="closePaymentModal()">انصراف</button>
+                <a href="tel:09011516162" class="btn btn-primary">تایید تلفنی</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- اسکریپت‌ها -->
+    <script>
+        // افکت جذاب حرکت ماوس روی کارت‌ها (Spotlight effect)
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // کنترل عملکرد افکت انیمیشن اسکرول (Reveal)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 120;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        // کنترل بخش آکاردئون FAQ
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+            const sign = element.querySelector('span:last-child');
+            if (item.classList.contains('active')) {
+                sign.textContent = '−';
+            } else {
+                sign.textContent = '+';
+            }
+        }
+
+        // عملکرد مودال پرداخت هوشمند
+        function openPaymentModal(planName, price) {
+            document.getElementById('modalPlanName').textContent = 'سفارش ' + planName;
+            document.getElementById('modalPlanPrice').textContent = price;
+            document.getElementById('paymentModal').classList.add('active');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+        }
+
+        // کپی شماره کارت در کلیپ‌بورد با فیدبک
+        function copyCardNumber() {
+            const cardNumberText = document.getElementById('cardNumber').textContent;
+            navigator.clipboard.writeText(cardNumberText).then(() => {
+                const status = document.getElementById('copyStatus');
+                status.textContent = 'شماره کارت با موفقیت کپی شد! ✓';
+                status.style.color = '#22d3ee';
+                setTimeout(() => {
+                    status.textContent = 'جهت کپی کلیک کنید';
+                    status.style.color = 'var(--text-muted)';
+                }, 2500);
+            }).catch(err => {
+                console.error('کپی موفقیت‌آمیز نبود: ', err);
+            });
+        }
+    </script>
+
+    <!-- چت آنلاین کریسپ با آی‌دی ثابت کاربر -->
+    <script type="text/javascript">
+        window.$crisp=[];
+        window.CRISP_WEBSITE_ID="5c421b2c-e6b3-4a70-8428-49c0b6b6041a";
+        (function(){
+            var d=document,s=d.createElement("script");
+            s.src="https://client.crisp.chat/l.js";
+            s.async=1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
+
+</body>
+</html>
