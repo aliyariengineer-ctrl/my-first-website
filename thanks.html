@@ -117,9 +117,10 @@
                         </div>
                     `;
                 })
-                .catch(err => {
-                    alert("خطا در بارگذاری اطلاعات. لطفاً دوباره تلاش کنید.");
-                });
+               .catch(err => {
+    alert("خطا: " + err);
+});
+
         }
 
         function copyCard(text) {
