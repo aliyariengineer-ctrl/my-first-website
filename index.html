@@ -914,7 +914,7 @@
 <div class="modal-icon">🧾</div>
 <h3>ثبت اطلاعات پرداخت</h3>
 
-<form action="https://formspree.io/f/xaqzodlv" method="POST">
+<form id="orderForm" action="https://formspree.io/f/xaqzodlv" method="POST">
     <input type="hidden" name="_next" value="https://tarahyar.github.io/thanks.html">
 <input type="hidden" name="plan" id="selectedPlan">
 
@@ -1036,6 +1036,38 @@ document.getElementById('step2').style.display="block";
             d.getElementsByTagName("head")[0].appendChild(s);
         })();
     </script>
+<script>
+  var form = document.getElementById("orderForm");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var data = new FormData(event.target);
+    
+    // تغییر متن دکمه برای اطلاع کاربر
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    if(submitBtn) submitBtn.innerHTML = "در حال ارسال...";
 
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        // هدایت مستقیم به صفحه تشکر اختصاصی شما
+        window.location.href = "thanks.html";
+      } else {
+        alert("متأسفانه خطایی رخ داد. لطفا دوباره تلاش کنید.");
+        if(submitBtn) submitBtn.innerHTML = "ثبت سفارش";
+      }
+    }).catch(error => {
+      alert("خطا در اتصال. اینترنت خود را چک کنید.");
+      if(submitBtn) submitBtn.innerHTML = "ثبت سفارش";
+    });
+  }
+  
+  form.addEventListener("submit", handleSubmit)
+</script>
 </body>
 </html>
