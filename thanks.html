@@ -14,7 +14,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
         .thanks-card {
@@ -32,22 +32,48 @@
             color: #10b981;
             margin-bottom: 20px;
         }
-        .btn-home {
-            background: linear-gradient(45deg, #3b82f6, #2563eb);
+        /* استایل بخش پرداخت */
+        .payment-box {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px dashed #3b82f6;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+        .btn-pay-toggle {
+            background: #3b82f6;
+            color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            width: 100%;
+        }
+        .btn-copy {
+            background: #475569;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .btn-home {
+            background: transparent;
+            border: 1px solid #3b82f6;
+            padding: 10px 30px;
             border-radius: 10px;
             color: white;
             text-decoration: none;
             transition: 0.3s;
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 20px;
         }
-        .btn-home:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
-            color: white;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -56,12 +82,53 @@
         <div class="check-icon">
             <i class="fas fa-check-circle"></i>
         </div>
-        <h1 class="mb-3">سفارش شما با موفقیت ثبت شد!</h1>
-        <p class="text-secondary">از اعتماد شما سپاسگزاریم. کارشناسان ما تا ۲۴ ساعت آینده جهت هماهنگی نهایی با شما تماس خواهند گرفت.</p>
+        <h1 class="h3 mb-3">سفارش شما با موفقیت ثبت شد!</h1>
+        <p class="text-secondary mb-4">از اعتماد شما سپاسگزاریم. کارشناسان ما جهت هماهنگی با شما تماس خواهند گرفت.</p>
+
+        <!-- بخش نمایش هوشمند شماره کارت -->
+        <div id="payment-area">
+            <button class="btn-pay-toggle" onclick="loadPaymentInfo()">
+                <i class="fas fa-credit-card me-2"></i> نمایش اطلاعات واریز پیش‌پرداخت
+            </button>
+        </div>
+
         <a href="index.html" class="btn-home">
             <i class="fas fa-arrow-right me-2"></i> بازگشت به صفحه اصلی
         </a>
     </div>
 
+    <script>
+        function loadPaymentInfo() {
+            fetch('payment.json')
+                .then(response => response.json())
+                .then(data => {
+                    const area = document.getElementById('payment-area');
+                    area.innerHTML = `
+                        <div class="payment-box">
+                            <p class="text-info small mb-2">شماره کارت جهت واریز:</p>
+                            <h4 style="letter-spacing: 3px; color: #fff;">${data.card}</h4>
+                            <p class="small text-light">به نام: <strong>${data.name}</strong></p>
+                            <button class="btn-copy" onclick="copyCard('${data.card}')">
+                                <i class="fas fa-copy me-1"></i> کپی شماره کارت
+                            </button>
+                            <p style="font-size: 11px; color: #94a3b8; margin-top: 15px;">
+                                لطفاً پس از واریز، تصویر فیش را در ایتا یا تلگرام برای پشتیبانی ارسال کنید.
+                            </p>
+                        </div>
+                    `;
+                })
+                .catch(err => {
+                    alert("خطا در بارگذاری اطلاعات. لطفاً دوباره تلاش کنید.");
+                });
+        }
+
+        function copyCard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("شماره کارت کپی شد!");
+            });
+        }
+    </script>
+
 </body>
 </html>
+
